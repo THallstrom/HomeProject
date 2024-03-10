@@ -1,0 +1,33 @@
+.tools-menu {
+    background-color: var(--color-gray-100);
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+
+        h1 {
+        }
+
+        p {
+        }
+
+        .selections {
+            display: grid;
+            grid-template-columns: auto auto auto;
+
+            .selections-option {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                border-radius: 8px;
+                padding: 40px;
+
+                &:hover {
+                    background-color: var(--color-white);
+                    @include shadow-secundary;
+                }
+            }
+        }
+    }
+}

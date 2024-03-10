@@ -1,0 +1,45 @@
+﻿.showcase {
+    .container {
+        display: flex;
+
+        .content {
+            font-size: 1rem;
+            margin-right: 50px;
+            padding-bottom: 50px;
+
+            h1 {
+                @include font-d4;
+            }
+
+            p {
+                font-size: 1.125em;
+            }
+
+            .get-started {
+            }
+
+            .brands {
+                display: none;
+                h6{}
+
+                @include lg {
+                    display: flex;
+                    flex-direction: column;
+                    .brands-logos {
+                        gap: 30px;
+                        display: flex;
+                        .brands-logo {
+                            width: 120px;
+                        }
+                    }
+                }   
+            }
+        }
+        // kom på något kul med bilden i mobil läget
+        .showcase-image {
+            width: 60%;
+            position: relative;
+            right: 0;
+        }
+    }
+}

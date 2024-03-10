@@ -1,0 +1,28 @@
+.content {
+    .container{
+        display: grid;
+        grid-template-columns: 60% 40%;
+        img{
+            width: 100%;
+        }
+        .content-info{
+                margin: 100px 50px;
+                padding: 16px 26px;
+            .content-info-box{
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                
+                i{}
+                p{
+                    padding:6px;
+                    margin: 0;
+                }
+            }
+            a{ 
+                margin: 40px 0px;
+            }
+
+        }
+    }
+}

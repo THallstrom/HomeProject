@@ -1,0 +1,49 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  @include font-standard;
+  color: var(--color-gray-900);
+  background-color: var(--color-white);
+  margin: 0;
+}
+
+a {
+  @include font-standard;
+  color: var(--color-theme);
+  font-size: 1em;
+  display: inline-block;
+
+  &:active,
+  &:visited,
+  &:focus,
+  &:hover {
+    color: var(--color-white);
+  }
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+button {
+  @include font-standard;
+}
+
+.nav-link {
+  @include font-semibold;
+  color: var(--color-gray-900) !important;
+  font-size: 1em;
+  display: inline-block;
+  text-decoration: none;
+  
+  &:active,
+  &.active,
+  &:hover {
+    color: var(--color-theme) !important;
+    text-decoration: underline;
+  }
+}
