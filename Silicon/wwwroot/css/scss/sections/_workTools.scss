@@ -1,0 +1,28 @@
+.worktools{
+    
+    .container{
+        margin: 100px auto;
+        display: grid;
+        justify-items: center;
+        .tool-text-content{
+            width:70%;
+            text-align: center;
+            margin: 24px 0px 56px 0px;
+        }
+        .icon-collector{
+            text-align: left;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 24px;
+            .icon-container{
+                display: grid;
+                padding: 24px;
+                gap: 24px;
+                
+                &:hover {
+                    @include shadow-secundary;
+                }
+            }
+        }
+    }
+}

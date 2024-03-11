@@ -16,3 +16,26 @@ h5 {
 h6 {
     @include font-h6;
 }
+
+.body-m-700 {
+    @include body-m-700;
+}
+.body-m-600 {
+    @include body-m-600;
+}
+.body-l-700 {
+    @include body-l-700;
+}
+
+.body-l-600 {
+    @include body-l-600;
+}
+
+.body-s-700 {
+    @include body-s-700;
+}
+
+.no-m-p {
+    margin: 0;
+    padding: 0;
+}

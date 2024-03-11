@@ -87,3 +87,35 @@ $font-manrope: "Manrope", sans-serif;
     @include heading;
     font-size: 1em !important;
 }
+
+@mixin body {
+    @include font;
+    font-size: 1em;
+    margin: 0;
+    padding: 0;
+}
+
+@mixin body-m-700 {
+    @include body;
+    color: var(--color-gray-700);
+}
+@mixin body-m-600 {
+    @include body;
+    color: var(--color-gray-600);
+}
+@mixin body-l-600 {
+    @include body;
+    font-size: 1.125em;
+    color: var(--color-gray-600);
+}
+@mixin body-l-700 {
+    @include body;
+    font-size: 1.125em;
+    color: var(--color-gray-700);
+}
+
+@mixin body-s-700 {
+    @include body;
+    font-size: 14px;
+    color: var(--color-gray-700);
+}

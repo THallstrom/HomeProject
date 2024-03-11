@@ -1,0 +1,22 @@
+.subscribe-news {
+    .container {
+        .upper {
+            display: flex;
+            flex-direction: row;
+        }
+        .middle{
+            display: flex;
+            align-items: center;
+            .check-box-area {
+                display: grid;
+                grid-template-columns: auto auto auto;
+                .check-box {
+                    display: flex;
+                }
+            }
+        }
+        .bottom{
+
+        }
+    }
+}
