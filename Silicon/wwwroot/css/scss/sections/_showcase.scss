@@ -1,27 +1,39 @@
 ﻿.showcase {
     .container {
-        display: flex;
+        display: grid;
+        .content {
+            text-align: center;
+        }
+        .get-started {
+            display: flex;
 
+        }
+        .brands{
+            display: none;
+        }
+        .showcase-image{
+            display: none;
+        }
+        @include md {
+            display: none;
+        }
+        @include xl{
+        display: flex;
         .content {
             font-size: 1rem;
             margin-right: 50px;
             padding-bottom: 50px;
-
             h1 {
                 @include font-d4;
             }
-
             p {
                 font-size: 1.125em;
             }
-
             .get-started {
             }
-
             .brands {
                 display: none;
                 h6{}
-
                 @include lg {
                     display: flex;
                     flex-direction: column;
@@ -40,6 +52,7 @@
             width: 60%;
             position: relative;
             right: 0;
+        }
         }
     }
 }

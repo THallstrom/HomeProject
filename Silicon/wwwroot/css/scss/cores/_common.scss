@@ -9,6 +9,11 @@ body {
   color: var(--color-gray-900);
   background-color: var(--color-white);
   margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  font-family: "manrope", sans-serif;
+  line-height: 1.5;
+  color: var(--color-gray-800);
 }
 
 a {
@@ -17,12 +22,12 @@ a {
   font-size: 1em;
   display: inline-block;
 
-  &:active,
+  /*&:active,
   &:visited,
   &:focus,
   &:hover {
     color: var(--color-white);
-  }
+  }*/
 
   &:hover {
     text-decoration: none;

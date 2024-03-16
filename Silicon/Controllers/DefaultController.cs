@@ -2,7 +2,7 @@
 
 namespace Silicon.Controllers
 {
-    public class Default : Controller
+    public class DefaultController : Controller
     {
         public IActionResult Home()
         {

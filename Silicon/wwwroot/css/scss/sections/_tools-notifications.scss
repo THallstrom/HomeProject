@@ -4,28 +4,53 @@
     .container {
         display: flex;
         flex-direction: column;
-        text-align: center;
-
-        h1 {
+        justify-content: center;
+        align-items: center;
+        .tools-menu-text{
+            padding: 32px;
+            width: 80%;
+            text-align:center;
         }
-
-        p {
-        }
-
         .selections {
             display: grid;
             grid-template-columns: auto auto auto;
+
 
             .selections-option {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                border-radius: 8px;
                 padding: 40px;
 
                 &:hover {
                     background-color: var(--color-white);
+                    border-radius: 8px;
                     @include shadow-secundary;
+                }
+
+                &:nth-child(1) {
+                    border-bottom: 1px solid var(--color-gray-300);
+                }
+
+                &:nth-child(2) {
+                    border-bottom: 1px solid var(--color-gray-300);
+                    border-left: 1px solid var(--color-gray-300);
+                    border-right: 1px solid var(--color-gray-300);
+                }
+
+                &:nth-child(3) {
+                    border-bottom: 1px solid var(--color-gray-300);
+                }
+
+                &:nth-child(4) {
+                }
+
+                &:nth-child(5) {
+                    border-left: 1px solid var(--color-gray-300);
+                    border-right: 1px solid var(--color-gray-300);
+                }
+
+                &:nth-child(6) {
                 }
             }
         }

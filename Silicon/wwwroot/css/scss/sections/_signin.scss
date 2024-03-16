@@ -1,0 +1,44 @@
+.signin {
+    margin-bottom: 50px;
+
+    .container {
+        width: 95%;
+        display: flex;
+        justify-content: center;
+
+        @include md {
+            width: 50%;
+        }
+
+        @include xl {
+            width: 90%;
+            
+        }
+
+        form {
+            @include xl {
+                width: 50%;
+            }
+
+            h1 {
+                margin-bottom: 0;
+            }
+
+            .form-content {
+                margin-top: 30px;
+                //display: grid;
+                gap: 20px;
+                             
+                .checkbox-group {
+                    margin-bottom: 30px;
+                    margin-top: 30px;
+                }
+
+                button {
+                    grid-area: submit;
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

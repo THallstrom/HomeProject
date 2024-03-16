@@ -1,46 +1,59 @@
 ﻿<section class="subscribe-news">
     @* ska inte vara en container *@
-    <div class="container">
+
+    <div class="contain">
+
+
+        
         <div class="upper">
-            <h1>Don't Want to Miss Anything?</h1>
-            <img src="~/images/icon/arrows.svg" />
+            <h1>Don't Want to Miss Anything?</h1><img src="~/images/icon/arrows.svg" />
         </div>
         <div class="middle">
-            <h5>Sign up for Newsletters</h5>
-            
+            <h5>Sign up for <br> Newsletters</h5>
                 <div class="check-box-area">
                     <div class="check-box">
                     <input type="checkbox" id="scales" name="scales" />
-                    <label for="scales">Daily Newsletter</label>
+                    <label for="scales"><p class="body-s-700">Daily Newsletter</p></label>
                     </div>
                 <div class="check-box">
                     <input type="checkbox" id="scales" name="scales"  />
-                    <label for="scales">Advertising Updates</label>
+                    <label for="scales"><p class="body-s-700">Advertising Updates</p></label>
+                </div>
+                </div>
+                <div class="check-box-area">
+
+                <div class="check-box">
+                    <input type="checkbox" id="scales" name="scales"  />
+                    <label for="scales"><p class="body-s-700">Week in Review</p></label>
                 </div>
                 <div class="check-box">
                     <input type="checkbox" id="scales" name="scales"  />
-                    <label for="scales">Week in Review</label>
+                    <label for="scales"><p class="body-s-700">Event Updates</p></label>
                 </div>
+                </div>
+                <div class="check-box-area">
+
                 <div class="check-box">
                     <input type="checkbox" id="scales" name="scales"  />
-                    <label for="scales">Event Updates</label>
+                    <label for="scales"><p class="body-s-700">Startups Weekly</p></label>
                 </div>
                 <div class="check-box">
+                    
                     <input type="checkbox" id="scales" name="scales"  />
-                    <label for="scales">Startups Weekly</label>
+                    <label for="scales"><p class="body-s-700">Podcasts</p></label>
                 </div>
-                <div class="check-box">
-                    <input type="checkbox" id="scales" name="scales"  />
-                    <label for="scales">Podcasts</label>
-                </div>
-                </div>
-            
+                </div> 
         </div>
         <div class="bottom">
-            <input type="text"/>
+            <div class="input-field">
+                @* // Här skall det komma in en icon fa-envelope *@
+                <input type="text" placeholder="Your Email" />
             <a class="btn-theme">Subscribe*</a>
+            </div>
             <p>* Yes, I agree to the <a>terms</a> and <a>privacy policy.</a> </p>
         </div>
+                </div>
+       
     </div>
 
 </section>
