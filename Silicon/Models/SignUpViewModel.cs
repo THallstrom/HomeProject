@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Silicon.Filters;
+using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 
 namespace Silicon.Models
@@ -31,9 +32,11 @@ namespace Silicon.Models
         [Display(Name = "Confirm password", Prompt = "Confirm your password")]
         [Required(ErrorMessage = "Password must be confirmed")]
         [Compare(nameof(Password), ErrorMessage = "Password don't match")]
+        [DataType(DataType.Password)]
         public string ConfirmPassword { get; set; } = null!;
 
-        [Display(Name = "I agree to the Terms & Conditions.")]
+        [CheckboxRequired]
+        [Display(Name = "I agree to the Terms & Conditions.", Prompt ="I accept the terms and conditions")]
         public bool TermsAndConditions { get; set; }
     }
 }

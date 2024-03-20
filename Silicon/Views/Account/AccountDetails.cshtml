@@ -1,0 +1,72 @@
+﻿@model AccountDetailViewModel
+
+<section class="count">
+    <div class="container">
+        <div class="p-info">
+            <div class="p-info-img">
+                <img class="p-info-image" src="~/images/profileImage/IMG-20240112-WA0005.jpeg" alt="">
+            </div>
+            <h4 class="no-m-p">John Doe</h4>
+            <p class="no-m-p">john.doe@domain.com</p>
+            <div class="acc-btn">
+                <button class="btn-theme"><i class="fa-regular fa-gear"></i>Account Details</button>
+                <button class="btn-secundary"><i class="fa-duotone fa-arrow-right-from-bracket"></i>Sign Out</button>
+            </div>
+        </div>
+        <div class="account">
+            <h1>Account details</h1>
+            <h3>Basic info</h3>
+            <form asp-action="Account" asp-controller="Account" method="post">
+                <div class="basic-info">
+                    <div class="info-input firstname">
+                        <label asp-for="FirstName"></label>
+                        <input asp-for="FirstName">
+                    </div>
+                    <div class="info-input lastname">
+                        <label asp-for="LastName"></label>
+                        <input asp-for="LastName">
+                    </div>
+                    <div class="info-input email">
+                        <label asp-for="Email"></label>
+                        <input asp-for="Email">
+                    </div>
+                    <div class="info-input phone">
+                        <label asp-for="Phone"></label>
+                        <input asp-for="Phone">
+                    </div>
+                    <div class="info-input bio">
+                        <label for="Bio">Bio</label>
+                        <textarea type="text" id="Bio" placeholder="Add short bio" rows="5" cols="5"></textarea>
+                    </div>
+                </div>
+            </form>
+            <div class="acc-btn">
+                <button class="btn-secundary">Cancel</button>
+                <button class="btn-theme">Save changes</button>
+            </div>
+            <h3>Address</h3>
+            <div class="address-info">
+                <div class="info-input address1">
+                    <label asp-for="Addressline1"></label>
+                    <input asp-for="Addressline2">
+                </div>
+                <div class="info-input address2">
+                    <label asp-for="Addressline2"></label>
+                    <input asp-for="Addressline2">
+                </div>
+                <div class="info-input postalcode">
+                   <label asp-for="PostalCode"></label>
+                   <input asp-for="PostalCode" />
+                </div>
+                <div class="info-input city">
+                    <label asp-for="City"></label>
+                    <input asp-for="City">
+                </div>
+            </div>
+            <div class="acc-btn">
+                <button class="btn-secundary">Cancel</button>
+                <button class="btn-theme">Save changes</button>
+            </div>
+        </div>
+    </div>
+</section>

@@ -13,28 +13,28 @@
                 <a asp-controller="Auth" asp-action="SignUp">Sign Up here</a>
             </p>
 
+            <div class="alert">
+                @ViewData["statusMessage"]
+            </div>
+
             <div class="form-content">
                 
                 <div class="input-email input-group">
                     <label class="input-label" asp-for="Email"></label>
                     <input asp-for="Email" />
-                    <span asp-validation-for="Email"></span>
                 </div>
                 <div class="input-password input-group">
                     <label class="input-label" asp-for="Password"></label>
                     <input asp-for="Password" />
-                    <span asp-validation-for="Password"></span>
                 </div>
                 
                 <div class="checkbox-group">
                     <div class="input-terms input-group">
                         <input asp-for="RememberMe" />
-                        <label asp-for="RememberMe">
-                            Keep me signed in
-                        </label>
+                        <label asp-for="RememberMe"></label>
                     </div>
                 </div>
-                <button class="input-submit btn btn-theme" type="submit">Sign test</button>
+                <button class="input-submit btn btn-theme" type="submit">Sign in</button>
             </div>
         </form>
     </div>

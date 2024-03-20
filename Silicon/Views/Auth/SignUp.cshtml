@@ -11,7 +11,9 @@
             <p>Already have a account? 
                 <a asp-controller="Auth" asp-action="SignIn">Sign In</a>
             </p>
-
+            <div>
+                @ViewData["StatusMessage"]
+            </div>
             <div class="form-content">
                 <div class="input-firstname input-group">
                     <label class="input-label" asp-for="FirstName"></label>

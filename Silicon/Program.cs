@@ -1,19 +1,27 @@
-var builder = WebApplication.CreateBuilder(args);
+using Infrastructure.Context;
+using Infrastructure.Entities;
+using Microsoft.EntityFrameworkCore;
 
+var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
-var app = builder.Build();
+builder.Services.AddDbContext<DataContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("SqlServer")));
+builder.Services.AddDefaultIdentity<UserEntity>(x =>
+{
+    x.User.RequireUniqueEmail = true;
+    x.SignIn.RequireConfirmedAccount = false;
+    x.Password.RequiredLength = 8;
+}).AddEntityFrameworkStores<DataContext>();
 
+
+var app = builder.Build();
 app.UseHsts();
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
 app.UseRouting();
-
 app.UseAuthorization();
-
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Default}/{action=Home}/{id?}");
+    pattern: "{controller=Auth}/{action=SignIn}/{id?}");
 
 app.Run();

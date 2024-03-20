@@ -1,37 +1,54 @@
 .mobile {
     background-color: var(--color-gray-100);
-    .container{
-    padding: 56px 110px;
-        .mobile-image {
-            //margin: 56px 0px;
-        }
-        background-color: var(--color-gray-200);
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        .text-area {
-            margin: auto;
-            //margin: 56px 0px;
-            width: 70%;
-            margin-top: auto;
-            margin-bottom: auto;
-            h1 {
-                margin-top: 0;
-            }
-            .store{
-                display: flex;
-                justify-content: space-between;
-                align-items: end;
-                margin: 2em 0em;
-                padding: 0;
-                .info{
-                    .store-info{
-                        @include body-m-600;
-                    }
-                    h4 {
-                        margin: 0;
-                    }
 
+    .container {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas: "mob-image" "mob-text";
+
+        @include md {
+            display: flex;
+            align-items: center;
+            
+        }
+        .mobile-image {
+            max-width: 100%;
+            grid-template-areas: mob-image;
+            margin: 56px 0;
+            img {
+                max-width: 100%;
+                height: auto;
+            }
+        }
+        .text-area {
+            display: grid;
+            grid-template-areas: mob-text;
+            margin: 0 auto 20px auto;
+            gap: 20px;
+
+            .store {
+                display: flex;
+                align-items: flex-end;
+                gap: 20px;
+
+                @include md {
+                    flex-direction: column;
+                    align-items: flex-start;
                 }
+
+                @include lg {
+                    flex-direction: row;
+                    align-items: flex-end;
+                }
+
+                p {
+                    padding: 0px;
+                    margin: 0;
+                }
+            }
+
+            a {
+                margin: 40px 0px;
             }
         }
     }

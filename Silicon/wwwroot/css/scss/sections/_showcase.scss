@@ -1,6 +1,8 @@
 ﻿.showcase {
     .container {
-        display: grid;
+        display: flex;
+        flex-direction: column-reverse;
+        //position: relative;
         .content {
             text-align: center;
         }
@@ -12,10 +14,13 @@
             display: none;
         }
         .showcase-image{
-            display: none;
+            //width: 100%;
+            margin-right: -15px;
+            //display: block;
         }
         @include md {
-            display: none;
+            display: flex;
+            flex-direction: row;
         }
         @include xl{
         display: flex;
@@ -51,6 +56,7 @@
         .showcase-image {
             width: 60%;
             position: relative;
+            overflow: hidden;
             right: 0;
         }
         }
