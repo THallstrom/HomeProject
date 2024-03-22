@@ -527,11 +527,18 @@ header .container .btn-menu {
 }
 
 .showcase .container {
+  width: 100%;
   display: flex;
   flex-direction: column-reverse;
+  padding-right: 0;
+  margin-right: 0;
+  align-items: center;
 }
 .showcase .container .content {
   text-align: center;
+  padding: 15px;
+  margin-bottom: 15px;
+  align-self: center;
 }
 .showcase .container .get-started {
   display: flex;
@@ -540,17 +547,41 @@ header .container .btn-menu {
   display: none;
 }
 .showcase .container .showcase-image {
-  margin-right: -15px;
+  width: 100%;
+  align-self: flex-end;
+}
+.showcase .container .showcase-image img {
+  max-width: 100%;
+  height: auto;
 }
 @media (min-width: 768px) {
   .showcase .container {
+    width: 100%;
     display: flex;
     flex-direction: row;
+    background-color: hotpink;
+    margin-right: 0;
+  }
+}
+@media (min-width: 992px) {
+  .showcase .container {
+    display: flex;
+    flex-direction: row;
+    background-color: pink;
+  }
+  .showcase .container .brands-logos {
+    gap: 30px;
+    display: flex;
+  }
+  .showcase .container .brands-logos .brands-logo {
+    width: 120px;
   }
 }
 @media (min-width: 1200px) {
   .showcase .container {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: lightblue;
   }
   .showcase .container .content {
     font-size: 1rem;
@@ -568,27 +599,6 @@ header .container .btn-menu {
   }
   .showcase .container .content .brands {
     display: none;
-  }
-}
-@media (min-width: 1200px) and (min-width: 992px) {
-  .showcase .container .content .brands {
-    display: flex;
-    flex-direction: column;
-  }
-  .showcase .container .content .brands .brands-logos {
-    gap: 30px;
-    display: flex;
-  }
-  .showcase .container .content .brands .brands-logos .brands-logo {
-    width: 120px;
-  }
-}
-@media (min-width: 1200px) {
-  .showcase .container .showcase-image {
-    width: 60%;
-    position: relative;
-    overflow: hidden;
-    right: 0;
   }
 }
 

@@ -1,64 +1,76 @@
 ﻿.showcase {
     .container {
+        width: 100%;
         display: flex;
         flex-direction: column-reverse;
-        //position: relative;
+        padding-right: 0;
+        margin-right: 0;
+        align-items: center;
+
         .content {
             text-align: center;
+            padding: 15px;
+            margin-bottom: 15px;
+            align-self: center;
         }
+
         .get-started {
             display: flex;
-
         }
-        .brands{
+
+        .brands {
             display: none;
         }
-        .showcase-image{
-            //width: 100%;
-            margin-right: -15px;
-            //display: block;
+
+        .showcase-image {
+            width: 100%;
+            align-self: flex-end;
+
+            img {
+                max-width: 100%;
+                height: auto;
+            }
         }
+
         @include md {
+            width: 100%;
             display: flex;
             flex-direction: row;
+            margin-right: 0;
         }
-        @include xl{
-        display: flex;
-        .content {
-            font-size: 1rem;
-            margin-right: 50px;
-            padding-bottom: 50px;
-            h1 {
-                @include font-d4;
-            }
-            p {
-                font-size: 1.125em;
-            }
-            .get-started {
-            }
-            .brands {
-                display: none;
-                h6{}
-                @include lg {
-                    display: flex;
-                    flex-direction: column;
-                    .brands-logos {
-                        gap: 30px;
-                        display: flex;
-                        .brands-logo {
-                            width: 120px;
-                        }
-                    }
-                }   
+
+        @include lg {
+            display: flex;
+            flex-direction: row;
+
+            .brands-logos {
+                gap: 30px;
+                display: flex;
+
+                .brands-logo {
+                    width: 120px;
+                }
             }
         }
-        // kom på något kul med bilden i mobil läget
-        .showcase-image {
-            width: 60%;
-            position: relative;
-            overflow: hidden;
-            right: 0;
-        }
+
+        @include xl {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            .content {
+                font-size: 1rem;
+                margin-right: 50px;
+                padding-bottom: 50px;
+                h1 {
+                    @include font-d4;
+                }
+                p {
+                    font-size: 1.125em;
+                }
+                .brands {
+                    display: none;
+                }
+            }
         }
     }
 }

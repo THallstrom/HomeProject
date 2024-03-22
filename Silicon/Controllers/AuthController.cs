@@ -31,7 +31,7 @@ namespace Silicon.Controllers
                     var result = await _signInManager.PasswordSignInAsync(user, model.Password, model.RememberMe, false);
                     if (result.Succeeded)
                     {
-                        return RedirectToAction("AccountDetails", "Account");
+                        return RedirectToAction("Index", "Home");
                     }
                 }
             }
@@ -89,7 +89,7 @@ namespace Silicon.Controllers
         public new async Task<IActionResult> SignOut()
         {
             await _signInManager.SignOutAsync();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Home", "Default");
         }
         #endregion
     }
