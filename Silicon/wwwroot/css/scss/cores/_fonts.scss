@@ -81,6 +81,7 @@ $font-manrope: "Manrope", sans-serif;
 @mixin font-h5 {
     @include heading;
     font-size: 1.25em !important;
+    color: var(--color-theme);
 }
 
 @mixin font-h6 {

@@ -1,0 +1,50 @@
+.security {
+  .container {
+    display: grid;
+    grid-template-areas: "info" "security-content" "security-delete";
+    @include md {
+      display: flex;
+      grid-template-areas: "info" "security-content";
+      align-items: flex-start;
+    }
+    .security-content {
+      grid-area: security-content;
+      .security-input {
+        display: grid;
+        gap: 24px;
+        grid-template-areas: "cPassword" "nPassword" "conPassword";
+
+        @include lg {
+          grid-template-areas: "cPassword cPassword" "nPassword conPassword";
+        }
+        .info-input {
+          display: flex;
+          flex-direction: column;
+        }
+        input {
+          border: 1px solid var(--color-gray-400);
+          padding: 13px 16px;
+          border-radius: 8px;
+        }
+
+        .cPassword{
+            grid-area: cPassword;
+            grid-column: span 1;
+        }
+        .nPassword{
+            grid-area: nPassword;
+        }
+        .conPassword{
+            grid-area: conPassword;
+        }
+      }
+      .security-delete {
+        grid-area: security-delete;
+        .security-checkbox {
+            padding: 24px 0 32px 0;
+            display: flex;
+        }
+      }
+    }
+  }
+}

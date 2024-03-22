@@ -8,5 +8,9 @@ namespace Silicon.Controllers
         {
             return View();
         }
+        public IActionResult NotAvailable()
+        {
+            return View();
+        }
     }
 }

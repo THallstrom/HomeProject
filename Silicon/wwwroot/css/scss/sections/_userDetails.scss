@@ -1,0 +1,43 @@
+.p-info {
+      grid-area: info;
+      display: grid;
+      justify-items: start;
+      align-items: center;
+      align-content: center;
+      gap: 10px;
+      margin: 20px;
+      @include md {
+        display: grid;
+        min-width: 250px;
+        padding: 20px;
+      }
+
+      .p-info-img {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 120px;
+        height: 120px;
+        overflow: hidden;
+        border-radius: 50%;
+
+        .p-info-image {
+          width: 100%;
+          height: auto;
+          border-radius: 10px;
+        }
+      }
+
+      .acc-btn {
+        display: grid;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        margin: 32px 0;
+        gap: 16px;
+        @include md {
+            display: grid;
+        }
+      }
+    }

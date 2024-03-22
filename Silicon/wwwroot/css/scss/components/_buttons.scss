@@ -46,6 +46,18 @@
     }
 }
 
+.btn-danger {
+    @include button-standard;
+    background-color: var(--color-danger);
+    border: 1px solid var(--color-danger);
+    color: var(--color-white);
+    
+    &:hover {
+        border: 1px solid var(--color-danger);
+        color: var(--color-danger);
+    }
+}
+
 .btn-menu {
     @include button-standard;
     background-color: var(--color-gray-200);
@@ -62,3 +74,9 @@
         border: 1px solid var(--color-gray-900);
     }
 }
+
+.acc-btn {
+    display: flex;
+    margin: 32px 0;
+    gap: 16px;
+  }

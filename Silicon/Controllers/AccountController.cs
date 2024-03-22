@@ -10,5 +10,10 @@ namespace Silicon.Controllers
         {
             return View();
         }
+        [Route("/Security")]
+        public IActionResult Security()
+        {
+            return View();
+        }
     }
 }

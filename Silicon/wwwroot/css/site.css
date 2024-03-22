@@ -1,4 +1,4 @@
-﻿@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
 :root {
   --color-white: #ffffff;
   --color-black: #000000;
@@ -123,6 +123,7 @@ h5 {
   line-height: 1.5;
   font-weight: 800;
   font-size: 1.25em !important;
+  color: var(--color-theme);
 }
 
 h6 {
@@ -183,6 +184,24 @@ h6 {
 .no-m-p {
   margin: 0;
   padding: 0;
+}
+
+input {
+  border: 1px solid var(--color-gray-400);
+  padding: 13px 16px;
+  border-radius: 8px;
+}
+
+label {
+  color: var(--color-gray-900);
+  font-family: "Manrope", sans-serif;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.info-input {
+  display: flex;
+  flex-direction: column;
 }
 
 .container {
@@ -279,6 +298,36 @@ h6 {
   border: 1px solid var(--color-gray-900);
 }
 
+.btn-danger {
+  font-family: "Manrope", sans-serif;
+  line-height: 1.5;
+  font-weight: 600;
+  font-size: 16px;
+  border-radius: 4px;
+  border: none;
+  padding: 10px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.12s ease-in-out;
+  background-color: var(--color-danger);
+  border: 1px solid var(--color-danger);
+  color: var(--color-white);
+}
+.btn-danger i {
+  margin-right: 10px;
+}
+.btn-danger:hover {
+  background-color: var(--color-white);
+}
+.btn-danger:hover {
+  border: 1px solid var(--color-danger);
+  color: var(--color-danger);
+}
+
 .btn-menu {
   font-family: "Manrope", sans-serif;
   line-height: 1.5;
@@ -314,6 +363,12 @@ h6 {
   border: 1px solid var(--color-gray-900);
 }
 
+.acc-btn {
+  display: flex;
+  margin: 32px 0;
+  gap: 16px;
+}
+
 .switch {
   position: relative;
   display: inline-block;
@@ -335,7 +390,6 @@ h6 {
   right: 0;
   bottom: 0;
   background-color: var(--color-gray-700);
-  -webkit-transition: 0.4s;
   transition: 0.4s;
 }
 
@@ -347,7 +401,6 @@ h6 {
   left: 4px;
   bottom: 4px;
   background-color: white;
-  -webkit-transition: 0.4s;
   transition: 0.4s;
 }
 
@@ -401,6 +454,9 @@ form textarea {
   padding: 15px;
   border-radius: 8px;
   border: 1px solid var(--color-gray-400);
+}
+form input::-moz-placeholder, form textarea::-moz-placeholder {
+  opacity: 0.5;
 }
 form input::placeholder,
 form textarea::placeholder {
@@ -559,7 +615,6 @@ header .container .btn-menu {
     width: 100%;
     display: flex;
     flex-direction: row;
-    background-color: hotpink;
     margin-right: 0;
   }
 }
@@ -567,7 +622,6 @@ header .container .btn-menu {
   .showcase .container {
     display: flex;
     flex-direction: row;
-    background-color: pink;
   }
   .showcase .container .brands-logos {
     gap: 30px;
@@ -581,7 +635,6 @@ header .container .btn-menu {
   .showcase .container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    background-color: lightblue;
   }
   .showcase .container .content {
     font-size: 1rem;
@@ -967,39 +1020,23 @@ header .container .btn-menu {
 
 .count .container {
   display: grid;
+  grid-template-areas: "info" "account";
 }
 @media (min-width: 768px) {
   .count .container {
-    grid-template-columns: min-content auto;
+    display: flex;
+    align-items: start;
   }
 }
-.count .container .p-info {
-  display: flex;
-  flex-direction: column;
-  justify-items: center;
-  align-items: center;
-  gap: 10px;
-  margin: 20px;
-}
-.count .container .p-info .p-info-img {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 120px;
-  height: 120px;
-  overflow: hidden;
-  border-radius: 50%;
-}
-.count .container .p-info .p-info-img .p-info-image {
+.count .container .account {
+  grid-area: account;
   width: 100%;
-  height: auto;
-  border-radius: 10px;
 }
-.count .container .p-info .acc-btn {
-  display: flex;
-  flex-direction: column;
-  margin: 32px 0;
-  gap: 16px;
+@media (min-width: 768px) {
+  .count .container .account {
+    border-left: 1px solid var(--color-gray-400);
+    padding-left: 20px;
+  }
 }
 .count .container .account .basic-info {
   display: grid;
@@ -1012,22 +1049,6 @@ header .container .btn-menu {
     grid-template-columns: repeat(2, 1fr);
     grid-template-areas: "firstname lastname" "email phone" "bio bio";
   }
-}
-.count .container .account .basic-info .info-input {
-  display: flex;
-  flex-direction: column;
-}
-.count .container .account .basic-info textarea,
-.count .container .account .basic-info input {
-  border: 1px solid var(--color-gray-400);
-  padding: 13px 16px;
-  border-radius: 8px;
-}
-.count .container .account .basic-info label {
-  color: var(--color-gray-900);
-  font-family: "Manrope", sans-serif;
-  line-height: 1.5;
-  font-weight: 600;
 }
 .count .container .account .basic-info .firstname {
   grid-area: firstname;
@@ -1044,11 +1065,6 @@ header .container .btn-menu {
 .count .container .account .basic-info .bio {
   grid-area: bio;
 }
-.count .container .account .acc-btn {
-  display: flex;
-  margin: 32px 0;
-  gap: 16px;
-}
 .count .container .address-info {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
@@ -1061,27 +1077,115 @@ header .container .btn-menu {
     grid-template-areas: "address1 address1" "address2 address2" "postalcode city";
   }
 }
-.count .container .address-info .info-input {
-  display: flex;
-  flex-direction: column;
-}
-.count .container .address-info .info-input input {
-  border: 1px solid var(--color-gray-400);
-  padding: 13px 16px;
-  border-radius: 8px;
-}
-.count .container .address-info .info-input label {
-  color: var(--color-gray-900);
-  font-family: "Manrope", sans-serif;
-  line-height: 1.5;
-  font-weight: 600;
-}
 .count .container .address1 {
   grid-area: address1;
 }
 .count .container .address2 {
   grid-area: address2;
 }
-.count .container h3 {
-  color: var(--color-theme);
+
+.p-info {
+  grid-area: info;
+  display: grid;
+  justify-items: start;
+  align-items: center;
+  align-content: center;
+  gap: 10px;
+  margin: 20px;
+}
+@media (min-width: 768px) {
+  .p-info {
+    display: grid;
+    min-width: 250px;
+    padding: 20px;
+  }
+}
+.p-info .p-info-img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 120px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+.p-info .p-info-img .p-info-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+.p-info .acc-btn {
+  display: grid;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin: 32px 0;
+  gap: 16px;
+}
+@media (min-width: 768px) {
+  .p-info .acc-btn {
+    display: grid;
+  }
+}
+
+.security .container {
+  display: grid;
+  grid-template-areas: "info" "security-content" "security-delete";
+}
+@media (min-width: 768px) {
+  .security .container {
+    display: flex;
+    grid-template-areas: "info" "security-content";
+    align-items: flex-start;
+  }
+}
+.security .container .security-content {
+  grid-area: security-content;
+}
+.security .container .security-content .security-input {
+  display: grid;
+  gap: 24px;
+  grid-template-areas: "cPassword" "nPassword" "conPassword";
+}
+@media (min-width: 992px) {
+  .security .container .security-content .security-input {
+    grid-template-areas: "cPassword cPassword" "nPassword conPassword";
+  }
+}
+.security .container .security-content .security-input .info-input {
+  display: flex;
+  flex-direction: column;
+}
+.security .container .security-content .security-input input {
+  border: 1px solid var(--color-gray-400);
+  padding: 13px 16px;
+  border-radius: 8px;
+}
+.security .container .security-content .security-input .cPassword {
+  grid-area: cPassword;
+  grid-column: span 1;
+}
+.security .container .security-content .security-input .nPassword {
+  grid-area: nPassword;
+}
+.security .container .security-content .security-input .conPassword {
+  grid-area: conPassword;
+}
+.security .container .security-content .security-delete {
+  grid-area: security-delete;
+}
+.security .container .security-content .security-delete .security-checkbox {
+  padding: 24px 0 32px 0;
+  display: flex;
+}
+
+.notAvailable .container {
+  display: grid;
+  justify-items: center;
+  justify-content: center;
+}
+.notAvailable .container p {
+  margin: 0;
+  padding: 16px 0 48px 0;
 }

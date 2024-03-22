@@ -1,138 +1,71 @@
 .count {
-    
-    .container {
-       
-        display: grid;
+  .container {
+    display: grid;
+    grid-template-areas: "info" "account";
 
+    @include md {
+        display: flex;
+        align-items: start;
+      }
+      
+      .account {
+        grid-area: account;
+        width: 100%;
         @include md {
-            grid-template-columns: min-content auto;
+          border-left: 1px solid var(--color-gray-400);
+          padding-left: 20px;
+        }
+      .basic-info {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-areas: "firstname" "lastname" "email" "phone" "bio";
+        @include md {
+          grid-template-columns: repeat(2, 1fr);
+          grid-template-areas: "firstname lastname" "email phone" "bio bio";
+        }
+        gap: 24px;
+
+        .firstname {
+          grid-area: firstname;
         }
 
-        .p-info {
-            display: flex;
-            flex-direction: column;
-            justify-items: center;
-            align-items: center;
-            gap: 10px;
-            margin: 20px;
-
-            .p-info-img {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                width: 120px;
-                height: 120px;
-                overflow: hidden;
-                border-radius: 50%;
-
-                .p-info-image {
-                    width: 100%;
-                    height: auto;
-                    border-radius: 10px;
-                }
-            }
-
-            .acc-btn {
-                display: flex;
-                flex-direction: column;
-                margin: 32px 0;
-                gap: 16px;
-            }
+        .lastname {
+          grid-area: lastname;
         }
 
-        .account {
-            .basic-info {
-                display: grid;
-                grid-template-columns: repeat(1, 1fr);
-                grid-template-areas: "firstname" "lastname" "email" "phone" "bio"; 
-                @include md{
-                grid-template-columns: repeat(2, 1fr);
-                grid-template-areas: "firstname lastname" "email phone" "bio bio";
-                }
-                gap: 24px;
-
-                .info-input {
-                    display: flex;
-                    flex-direction: column;
-                }
-
-                textarea,
-                input {
-                    border: 1px solid var(--color-gray-400);
-                    padding: 13px 16px;
-                    border-radius: 8px;
-                }
-
-                label {
-                    color: var(--color-gray-900);
-                    @include font-semibold
-                }
-
-                .firstname {
-                    grid-area: firstname;
-                }
-
-                .lastname {
-                    grid-area: lastname;
-                }
-
-                .email {
-                    grid-area: email;
-                }
-
-                .phone {
-                    grid-area: phone;
-                }
-
-                .bio {
-                    grid-area: bio;
-                }
-            }
-
-            .acc-btn {
-                display: flex;
-                margin: 32px 0;
-                gap: 16px;
-            }
+        .email {
+          grid-area: email;
         }
 
-        .address-info {
-            display: grid;
-            grid-template-columns: repeat(1, 1fr);
-            grid-template-areas: "address1" "address2" "postalcode" "city";
-            @include md{
-            grid-template-columns: repeat(2, 1fr);
-            grid-template-areas: "address1 address1" "address2 address2" "postalcode city";
-            }
-            gap: 24px;
-
-            .info-input {
-                display: flex;
-                flex-direction: column;
-
-                input {
-                    border: 1px solid var(--color-gray-400);
-                    padding: 13px 16px;
-                    border-radius: 8px;
-                }
-
-                label {
-                    color: var(--color-gray-900);
-                    @include font-semibold
-                }
-            }
+        .phone {
+          grid-area: phone;
         }
 
-        .address1 {
-            grid-area: address1;
+        .bio {
+          grid-area: bio;
         }
+      }
 
-        .address2 {
-            grid-area: address2;
-        }
 
-        h3 {
-            color: var(--color-theme)
-        }
     }
+
+    .address-info {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      grid-template-areas: "address1" "address2" "postalcode" "city";
+      @include md {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas: "address1 address1" "address2 address2" "postalcode city";
+      }
+      gap: 24px;
+    }
+
+    .address1 {
+      grid-area: address1;
+    }
+
+    .address2 {
+      grid-area: address2;
+    }
+  }
 }

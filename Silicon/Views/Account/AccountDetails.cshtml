@@ -2,20 +2,10 @@
 
 <section class="count">
     <div class="container">
-        <div class="p-info">
-            <div class="p-info-img">
-                <img class="p-info-image" src="~/images/profileImage/IMG-20240112-WA0005.jpeg" alt="">
-            </div>
-            <h4 class="no-m-p">John Doe</h4>
-            <p class="no-m-p">john.doe@domain.com</p>
-            <div class="acc-btn">
-                <button class="btn-theme"><i class="fa-regular fa-gear"></i>Account Details</button>
-                <button class="btn-secundary"><i class="fa-duotone fa-arrow-right-from-bracket"></i>Sign Out</button>
-            </div>
-        </div>
+        <partial name="~/views/account/_userDetails.cshtml" /> 
         <div class="account">
-            <h1>Account details</h1>
-            <h3>Basic info</h3>
+            <h2 class="no-m-p">Account details</h2>
+            <h5>Basic info</h5>
             <form asp-action="Account" asp-controller="Account" method="post">
                 <div class="basic-info">
                     <div class="info-input firstname">
@@ -44,7 +34,7 @@
                 <button class="btn-secundary">Cancel</button>
                 <button class="btn-theme">Save changes</button>
             </div>
-            <h3>Address</h3>
+            <h5>Address</h5>
             <div class="address-info">
                 <div class="info-input address1">
                     <label asp-for="Addressline1"></label>
