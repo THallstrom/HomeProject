@@ -75,9 +75,7 @@
   }
   .map {
     margin-top: -250px;
-    img {
-        height: auto;
-        width: 100%;
-    }
+    position: relative;
+    background-color: var(--color-white);
   }
 }

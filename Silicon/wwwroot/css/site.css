@@ -16,7 +16,7 @@
   --color-danger: #EF4444;
 }
 
-.dark-mode {
+.dark-theme {
   --color-black: #ffffff;
   --color-white: #000000;
   --color-theme: #6365f1;
@@ -1324,8 +1324,6 @@ header .container .btn-menu {
 }
 .contact-page .map {
   margin-top: -250px;
-}
-.contact-page .map img {
-  height: auto;
-  width: 100%;
+  position: relative;
+  background-color: var(--color-white);
 }
