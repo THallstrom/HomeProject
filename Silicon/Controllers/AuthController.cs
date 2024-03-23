@@ -31,7 +31,7 @@ namespace Silicon.Controllers
                     var result = await _signInManager.PasswordSignInAsync(user, model.Password, model.RememberMe, false);
                     if (result.Succeeded)
                     {
-                        return RedirectToAction("Index", "Home");
+                        return RedirectToAction("AccountDetails", "Account");
                     }
                 }
             }

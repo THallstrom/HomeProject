@@ -1,0 +1,65 @@
+@using Silicon.models
+@model ContactViewModel
+
+@{
+    ViewData["Title"] = "Contact";
+}
+
+<div class="contact-page">
+    <div class="container">
+        <div class="container-text">
+            <h2>Contact Us</h2>
+            <div class="contact-info">
+                <div class="contact-icon">
+                    <i class="fa-regular fa-envelope theme"></i>
+                </div>
+                <div class="contact-info-area">
+                    <h6>Email us</h6>
+                    <p>Please feel free to drop us a line. We will respond as soon as possible.</p>
+                    <p class="theme p-padd">Leave a message <i class="fa-regular fa-arrow-right"></i></p>
+                </div>
+            </div>
+            <div class="contact-info">
+                <div class="contact-icon">
+                    <i class="fa-light fa-users-medical theme"></i>
+                </div>
+                <div class="contact-info-area">
+                    <h6>Careers</h6>
+                    <p>Sit ac ipsum leo lorem magna nunc mattis maecenas non vestibulum.</p>
+                    <p class="theme p-padd">Send an application<i class="fa-regular fa-arrow-right"></i></p>
+                </div>
+            </div>
+        </div>
+        <div class="contact-form">
+            <h3>Get In Contact With Us</h3>
+            <form method="post" asp-controller="Default" asp-action="Contact">
+                <div class="form-content">
+                    <div class="input-group input-fullname">
+                        <label class="input-label" asp-for="FullName"></label>
+                        <input asp-for="FullName" />
+                    </div>
+                    <div class="input-group input-emailaddress">
+                        <label class="input-label" asp-for="EmailAddress"></label>
+                        <input asp-for="EmailAddress" />
+                    </div>
+                    <div class="input-group input-service">
+                        <label class="input-label" asp-for="Service"></label>
+                        <select asp-for="Service">
+                            <option value="service1">Hej på dej</option>
+                            <option value="service2">Hej på mig</option>
+                            <option value="service3">Hej på Olle</option>
+                        </select>
+                    </div>
+                    <div class="input-group input-message">
+                        <label class="input-label" asp-for="Message"></label>
+                        <textarea asp-for="Message" rows="6"></textarea>
+                    </div>
+                    <button class="btn-theme contact-btn">Send Contact Request</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="map">
+        <img src="~/images/london.svg" alt="">
+    </div>
+</div>

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Silicon.Models;
+namespace Silicon.models;
 
 public class SecurityViewModel
 {

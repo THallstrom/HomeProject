@@ -3,12 +3,21 @@
         <a asp-action="Home" asp-controller="Default">
             <img src="~/images/SiliconLogo.svg" alt="Silicon logo"></i>
         </a>
+        @if (User.Identity.IsAuthenticated)
+        {
         <nav>
             <a asp-action="Home" asp-controller="Default" class="nav-link">Overview</a>
             <a asp-action="Home" asp-controller="Default" class="nav-link">Features</a>
             <a asp-action="Contact" asp-controller="Default" class="nav-link">Contact</a>
             <a asp-action="AccountDetails" asp-controller="Account" class="nav-link">Account</a>
         </nav>
+        } else {
+            <nav>
+        <a asp-action="Home" asp-controller="Default" class="nav-link">Overview</a>
+        <a asp-action="Home" asp-controller="Default" class="nav-link">Features</a>
+        <a asp-action="Contact" asp-controller="Default" class="nav-link">Contact</a>
+            </nav>
+        }
         <div class="theme-switch">
             <label for="theme-switch-mode">Light</label>
             <label class="switch">

@@ -1,0 +1,104 @@
+{
+  "courses": [
+    {
+      "imglink": "~/images/courseImg/Blender.svg",
+      "courseName": "Blender Character Creator v2.0 for Video Games Design",
+      "author": "By Ralph Edwards",
+      "price": 18.99,
+      "hours": 160,
+      "discount": "false",
+      "discountPrice": 0,
+      "grade": 92,
+      "gradeby": 3.1
+    }, 
+
+    {
+      "imglink": "~/images/courseImg/fullstack.svg",
+      "courseName": "Fullstack Web Developer Course from Scratch",
+      "author": "By Robert Fox",
+      "price": 12.5,
+      "hours": 220,
+      "discount": "false",
+      "discountPrice": 0,
+      "grade": 94,
+      "gradeby": 4.2
+    },
+    {
+      "imglink": "~/images/courseImg/frontend.svg",
+      "courseName": "HTML, CSS, JavaScript Web Developer",
+      "author": "By Jenny Wilson & Marvin McKinney",
+      "price": 15.99,
+      "hours": 160,
+      "discount": "false",
+      "discountPrice": 0,
+      "grade": 92,
+      "gradeby": 3.2
+    },
+    {
+      "imglink": "~/images/courseImg/webdeveloper.svg",
+      "courseName": "The Complete Front-End Web Development Course",
+      "author": "By Albert Flores",
+      "price": 44.99,
+      "hours": 100,
+      "discount": "true",
+      "discountPrice": 9.99,
+      "grade": 98,
+      "gradeby": 2.7
+    },
+    {
+      "imglink": "~/images/courseImg/ios-swift.svg",
+      "courseName": "iOS & Swift - The Complete iOS App Development Course",
+      "author": "By Marvin McKinney",
+      "price": 15.99,
+      "hours": 160,
+      "discount": "false",
+      "discountPrice": 0,
+      "grade": 92,
+      "gradeby": 3.1
+    },
+    {
+      "imglink": "~/images/courseImg/datascience.svg",
+      "courseName": "Data Science & Machine Learning with Python",
+      "author": "By Esther Howard",
+      "price": 11.2,
+      "hours": 160,
+      "discount": "false",
+      "discountPrice": 0,
+      "grade": 92,
+      "gradeby": 3.1
+    },
+    {
+      "imglink": "~/images/courseImg/creativecss.svg",
+      "courseName": "Creative CSS Drawing Course: Make Art With CSS",
+      "author": "By Robert Fox",
+      "price": 10.5,
+      "hours": 220,
+      "discount": "false",
+      "discountPrice": 0,
+      "grade": 94,
+      "gradeby": 4.2
+    },
+    {
+      "imglink": "~/images/courseImg/mobilegame.svg",
+      "courseName": "The Ultimate Guide to 2D Mobile Game Development with Unity",
+      "author": "By Albert Flores",
+      "price": 44.99,
+      "hours": 100,
+      "discount": "true",
+      "discountPrice": 12.99,
+      "grade": 98,
+      "gradeby": 2.7
+    },
+    {
+      "imglink": "~/images/courseImg/jmeter.svg",
+      "courseName": "Learn JMETER from Scratch on Live Apps-Performance Testing",
+      "author": "By Jenny Wilson",
+      "price": 14.5,
+      "hours": 160,
+      "discount": "false",
+      "discountPrice": 0,
+      "grade": 92,
+      "gradeby": 3.1
+    }
+  ]
+}

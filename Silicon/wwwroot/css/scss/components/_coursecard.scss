@@ -1,0 +1,44 @@
+p, h5{
+    padding: 0;
+    margin: 0;
+}
+.courseCard {
+    width: 420px;
+    border-radius: 8px;
+    @include shadow-secundary;
+    .courseImg {
+        img{
+            border-radius: 8px 8px 0px 0px;
+            width: 100%;
+            height: auto;
+        }
+    }
+    .courseText{
+        padding: 24px;
+        .courseInfo{
+            display: grid;
+            gap: 8px;
+            padding-bottom: 16px;
+            h5{
+                color: var(--color-gray-800);
+            }
+            border-bottom: 1px solid var(--color-gray-400);
+            .price {
+                color: var(--color-theme);
+            }
+        }
+        .courseTime{
+            display: flex;
+            gap: 24px;
+            align-content: center;
+            padding: 24px 0 24px 0;
+            .ctime, 
+            .cpercent {
+                display: flex;
+                align-items: center;
+                gap:5px;
+            }
+            
+        }
+    }
+}

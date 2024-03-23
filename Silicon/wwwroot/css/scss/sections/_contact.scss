@@ -1,0 +1,83 @@
+.contact-page {
+  background-color: var(--color-gray-100);
+  .container {
+    display: grid;
+    grid-template-areas: "container-text contact-form" ;
+    .container-text {
+        grid-area: container-text;
+      display: flex;
+      flex-direction: column;
+      width: 60%;
+      gap: 32px;
+      .contact-info {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        //width: 390px;
+        align-items: start;
+
+        .contact-icon {
+          display: flex;
+          align-items: center;
+          border-radius: 100px;
+          background-color: var(--color-white);
+          padding: 10px;
+          margin-right: 10px;
+        }
+        .theme {
+          color: var(--color-theme);
+        }
+        .contact-info-area {
+          display: grid;
+          gap: 12px;
+        }
+        .p-padd {
+          padding: 16px 0 0 0;
+        }
+      }
+    }
+    .contact-form {
+        grid-area: contact-form;
+      width: 636px;
+      height: auto;
+      padding: 72px;
+      margin: 30px;
+      background-color: var(--color-white);
+      z-index: 1;
+      border-radius: 8px;
+      @include shadow-secundary;
+
+      .form-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "fullname fullname" "email email" "service service" "message message" "btn btn";
+
+        .contact-btn {
+          grid-area: btn;
+          grid-column: span 1;
+          width: auto;
+          margin: 36px 0 0 0;
+        }
+
+        .input-fullname {
+          grid-area: fullname;
+        }
+        .input-emailaddress {
+          grid-area: email;
+        }
+        .input-service {
+          grid-area: service;
+        }
+        .input-message {
+          grid-area: message;
+        }
+      }
+    }
+  }
+  .map {
+    margin-top: -250px;
+    img {
+        height: auto;
+        width: 100%;
+    }
+  }
+}

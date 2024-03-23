@@ -124,6 +124,8 @@ h5 {
   font-weight: 800;
   font-size: 1.25em !important;
   color: var(--color-theme);
+  margin: 0;
+  padding: 0;
 }
 
 h6 {
@@ -131,6 +133,8 @@ h6 {
   line-height: 1.5;
   font-weight: 800;
   font-size: 1em !important;
+  margin: 0;
+  padding: 0;
 }
 
 .body-m-700 {
@@ -446,7 +450,8 @@ form .checkbox-group .input-group {
   gap: 15px;
 }
 form input,
-form textarea {
+form textarea,
+form select {
   font-family: "manrope", sans-serif;
   font-size: 1rem;
   font-weight: 400 !important;
@@ -455,11 +460,12 @@ form textarea {
   border-radius: 8px;
   border: 1px solid var(--color-gray-400);
 }
-form input::-moz-placeholder, form textarea::-moz-placeholder {
+form input::-moz-placeholder, form textarea::-moz-placeholder, form select::-moz-placeholder {
   opacity: 0.5;
 }
 form input::placeholder,
-form textarea::placeholder {
+form textarea::placeholder,
+form select::placeholder {
   opacity: 0.5;
 }
 form input[type=checkbox] {
@@ -481,6 +487,49 @@ form .input-validation-error {
 .empty {
   height: 300px;
   background-color: var(--color-white);
+}
+
+p, h5 {
+  padding: 0;
+  margin: 0;
+}
+
+.courseCard {
+  width: 420px;
+  border-radius: 8px;
+  box-shadow: 0 8px 18px -8px var(--color-gray-400);
+}
+.courseCard .courseImg img {
+  border-radius: 8px 8px 0px 0px;
+  width: 100%;
+  height: auto;
+}
+.courseCard .courseText {
+  padding: 24px;
+}
+.courseCard .courseText .courseInfo {
+  display: grid;
+  gap: 8px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--color-gray-400);
+}
+.courseCard .courseText .courseInfo h5 {
+  color: var(--color-gray-800);
+}
+.courseCard .courseText .courseInfo .price {
+  color: var(--color-theme);
+}
+.courseCard .courseText .courseTime {
+  display: flex;
+  gap: 24px;
+  align-content: center;
+  padding: 24px 0 24px 0;
+}
+.courseCard .courseText .courseTime .ctime,
+.courseCard .courseText .courseTime .cpercent {
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
 header {
@@ -1143,6 +1192,12 @@ header .container .btn-menu {
 .security .container .security-content {
   grid-area: security-content;
 }
+@media (min-width: 768px) {
+  .security .container .security-content {
+    border-left: 1px solid var(--color-gray-400);
+    padding-left: 20px;
+  }
+}
 .security .container .security-content .security-input {
   display: grid;
   gap: 24px;
@@ -1188,4 +1243,89 @@ header .container .btn-menu {
 .notAvailable .container p {
   margin: 0;
   padding: 16px 0 48px 0;
+}
+
+.course .container .course-expose-area {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 24px;
+}
+
+.contact-page {
+  background-color: var(--color-gray-100);
+}
+.contact-page .container {
+  display: grid;
+  grid-template-areas: "container-text contact-form";
+}
+.contact-page .container .container-text {
+  grid-area: container-text;
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  gap: 32px;
+}
+.contact-page .container .container-text .contact-info {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: start;
+}
+.contact-page .container .container-text .contact-info .contact-icon {
+  display: flex;
+  align-items: center;
+  border-radius: 100px;
+  background-color: var(--color-white);
+  padding: 10px;
+  margin-right: 10px;
+}
+.contact-page .container .container-text .contact-info .theme {
+  color: var(--color-theme);
+}
+.contact-page .container .container-text .contact-info .contact-info-area {
+  display: grid;
+  gap: 12px;
+}
+.contact-page .container .container-text .contact-info .p-padd {
+  padding: 16px 0 0 0;
+}
+.contact-page .container .contact-form {
+  grid-area: contact-form;
+  width: 636px;
+  height: auto;
+  padding: 72px;
+  margin: 30px;
+  background-color: var(--color-white);
+  z-index: 1;
+  border-radius: 8px;
+  box-shadow: 0 8px 18px -8px var(--color-gray-400);
+}
+.contact-page .container .contact-form .form-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "fullname fullname" "email email" "service service" "message message" "btn btn";
+}
+.contact-page .container .contact-form .form-content .contact-btn {
+  grid-area: btn;
+  grid-column: span 1;
+  width: auto;
+  margin: 36px 0 0 0;
+}
+.contact-page .container .contact-form .form-content .input-fullname {
+  grid-area: fullname;
+}
+.contact-page .container .contact-form .form-content .input-emailaddress {
+  grid-area: email;
+}
+.contact-page .container .contact-form .form-content .input-service {
+  grid-area: service;
+}
+.contact-page .container .contact-form .form-content .input-message {
+  grid-area: message;
+}
+.contact-page .map {
+  margin-top: -250px;
+}
+.contact-page .map img {
+  height: auto;
+  width: 100%;
 }
