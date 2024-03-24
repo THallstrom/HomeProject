@@ -8,10 +8,16 @@ namespace Silicon.Controllers
     {
         public IActionResult AccountDetails()
         {
+            var userEmail = User.Identity.Name;
+            ViewData["userEmail"] = userEmail;
             return View();
         }
         [Route("/Security")]
         public IActionResult Security()
+        {
+            return View();
+        }
+        public IActionResult SavedCourses()
         {
             return View();
         }

@@ -1084,7 +1084,7 @@ header .container .btn-menu {
 @media (min-width: 768px) {
   .count .container .account {
     border-left: 1px solid var(--color-gray-400);
-    padding-left: 20px;
+    padding-left: 120px;
   }
 }
 .count .container .account .basic-info {
@@ -1195,7 +1195,7 @@ header .container .btn-menu {
 @media (min-width: 768px) {
   .security .container .security-content {
     border-left: 1px solid var(--color-gray-400);
-    padding-left: 20px;
+    padding-left: 120px;
   }
 }
 .security .container .security-content .security-input {
@@ -1326,4 +1326,32 @@ header .container .btn-menu {
   margin-top: -250px;
   position: relative;
   background-color: var(--color-white);
+}
+
+.savedcourses .container {
+  display: grid;
+}
+@media (min-width: 768px) {
+  .savedcourses .container {
+    display: flex;
+    align-items: flex-start;
+  }
+}
+.savedcourses .container .savedcourses-content {
+  grid-area: saved-content;
+  gap: 24px;
+}
+@media (min-width: 768px) {
+  .savedcourses .container .savedcourses-content {
+    display: grid;
+    border-left: 1px solid var(--color-gray-400);
+    padding-left: 120px;
+    padding-right: 20px;
+  }
+}
+.savedcourses .container .savedcourses-content .savedcourses-list {
+  display: grid;
+  grid-template-columns: auto auto;
+  width: 100%;
+  gap: 24px;
 }

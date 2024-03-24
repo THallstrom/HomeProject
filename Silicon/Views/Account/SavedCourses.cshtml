@@ -1,0 +1,20 @@
+@{
+    ViewData["Title"] = "SavedCourses";
+}
+
+<section class="savedcourses">
+    <div class="container">
+        <partial name="~/views/Account/_userDetails.cshtml" />
+        <div class="savedcourses-content">
+            <h2 class="saved-text">Saved Items</h2>
+            <div class="savedcourses-list">
+                <partial name="~/views/partials/sections/_courseCard.cshtml" />
+                <partial name="~/views/partials/sections/_courseCard.cshtml" />
+                <partial name="~/views/partials/sections/_courseCard.cshtml" />
+                <partial name="~/views/partials/sections/_courseCard.cshtml" />
+                <partial name="~/views/partials/sections/_courseCard.cshtml" />
+                <partial name="~/views/partials/sections/_courseCard.cshtml" />
+            </div>
+        </div>
+    </div>
+</section>
