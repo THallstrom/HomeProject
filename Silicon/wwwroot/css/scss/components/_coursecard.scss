@@ -6,39 +6,62 @@ p, h5{
     width: 420px;
     border-radius: 8px;
     @include shadow-secundary;
+
     .courseImg {
-        img{
+        img {
             border-radius: 8px 8px 0px 0px;
             width: 100%;
             height: auto;
         }
     }
-    .courseText{
+
+    .courseText {
         padding: 24px;
-        .courseInfo{
+
+        .courseInfo {
             display: grid;
             gap: 8px;
             padding-bottom: 16px;
-            h5{
+
+            h5 {
                 color: var(--color-gray-800);
             }
+
             border-bottom: 1px solid var(--color-gray-400);
+
             .price {
                 color: var(--color-theme);
+                @include font-bold;
+            }
+
+            .ifdiscount{
+                display: flex;
+                gap: 8px;
+            .disc-price {
+                color: var(--color-danger);
+                @include font-bold;
+            }
+
+            .disc-price-original {
+                color: var(--color-gray-600);
+                text-decoration: line-through;
+            }
             }
         }
-        .courseTime{
+
+        .courseTime {
             display: flex;
             gap: 24px;
             align-content: center;
             padding: 24px 0 24px 0;
-            .ctime, 
+            color: var(--color-gray-600);
+
+            .ctime,
             .cpercent {
                 display: flex;
                 align-items: center;
-                gap:5px;
+                gap: 5px;
             }
-            
         }
     }
 }

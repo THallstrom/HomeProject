@@ -13,11 +13,12 @@ form {
         display: grid;
     }
 
-    .checkbox-group{
+    .checkbox-group {
         label {
             font-weight: 400;
         }
-        .input-group{
+
+        .input-group {
             display: flex;
             align-items: center;
             gap: 15px;
@@ -25,7 +26,7 @@ form {
     }
 
     input,
-    textarea, 
+    textarea,
     select {
         font-family: "manrope", sans-serif;
         font-size: 1rem;
@@ -33,7 +34,7 @@ form {
         color: var(--color-gray-800);
         padding: 15px;
         border-radius: 8px;
-        border:1px solid var(--color-gray-400);
+        border: 1px solid var(--color-gray-400);
 
         &::placeholder {
             opacity: 0.5;
@@ -54,7 +55,59 @@ form {
         padding: 2px 0;
     }
 
-    .input-validation-error{
+    .input-validation-error {
         border: 1px solid var(--color-danger)
+    }
+}
+
+.filters {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+
+    .select {
+        position: relative;
+        min-width: 300px;
+        background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M5.5 7l4.5 4.5L14.5 7z"/></svg>');
+        background-repeat: no-repeat;
+        background-position: right 10px center;
+        background-size: 16px;
+
+
+        .selected {
+            padding: 8px 16px;
+            border-radius: 8px;
+            border: 1px solid var(--color-gray-400);
+            cursor: pointer;
+        }
+
+        .select-options {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background-color: var(--color-white);
+            border: 1px solid var(--color-gray-400);
+            z-index: 10;
+
+            .option {
+                padding: 10px;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: var(--color-gray-400);
+                }
+            }
+        }
+    }
+
+    .input-seach-group {
+        #searchQuary {
+            padding: 8px 16px;
+            border-radius: 8px;
+            border: 1px solid var(--color-gray-400);
+            cursor: pointer;
+        }
     }
 }

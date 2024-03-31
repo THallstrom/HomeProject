@@ -124,3 +124,8 @@ $font-manrope: "Manrope", sans-serif;
     font-size: 14px;
     color: var(--color-gray-700);
 }
+
+@mixin body-s {
+    @include body;
+    font-size: 14px;
+}

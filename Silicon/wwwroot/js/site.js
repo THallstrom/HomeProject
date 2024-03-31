@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let nav = document.querySelector('nav')
     let accBtn = document.querySelector('.account-buttons')
 
+
     btnMenu.addEventListener('click', () => {
         btnMenu.classList.toggle('active')
         btnMenu.classList.toggle('fixed')
@@ -20,4 +21,37 @@ document.addEventListener("DOMContentLoaded", () => {
 
         accBtn.classList.remove('active')
     })
+    select()
+    circle()
 })
+function select() {
+    try {
+        let select = document.querySelector('.select')
+        let selected = select.querySelector('.selected')
+        let selectOptions = select.querySelector('.select-options')
+
+        selected.addEventListener('click', function () {
+            selectOptions.style.display = selectOptions.style.display === 'block' ? 'none':'block'
+        })
+
+        let options = selectOptions.querySelectorAll('option')
+
+        options.forEach(function (option) {
+            option.addEventListener('click', function () {
+                selected.innerHTML = this.textContent
+                selectOptions.style.display = 'none'
+                let category = this.getAttribute('data-value')
+            })
+        })
+    }
+    catch { }
+}
+
+function circle() {
+    let circles = document.querySelectorAll('.circle'); 
+    circles.forEach(function (circle) { 
+        circle.addEventListener('click', function () { 
+            circle.classList.toggle('clicked');
+        });
+    });
+}

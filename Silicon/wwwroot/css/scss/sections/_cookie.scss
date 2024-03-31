@@ -1,0 +1,15 @@
+.alert-gray {
+    background-color: var(--color-gray-300);
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index:1;
+    .container {
+        display: flex;
+        
+        justify-content: space-between;
+        align-items: center;
+        font-weight: 600;
+    }
+}

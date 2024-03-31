@@ -8,7 +8,7 @@
     <div class="container">
         <form method="post" asp-controller="Auth" asp-action="SignUp">
             <h1>Create Account</h1>
-            <p>Already have a account? 
+            <p>Already have a account?
                 <a asp-controller="Auth" asp-action="SignIn">Sign In</a>
             </p>
             <div>
@@ -42,12 +42,13 @@
                 </div>
                 <div class="checkbox-group">
                     <div class="input-terms input-group">
-                        <input asp-for="TermsAndConditions"/>
+                        <input asp-for="TermsAndConditions" />
                         <label asp-for="TermsAndConditions">
-                            I accept the <a asp-action="Terms" asp-controller="About">Terms</a> & <a asp-action="Conditions" asp-controller="About">Conditions</a>
+                            I accept the <a asp-action="Terms" asp-controller="About">Terms</a> & <a
+                                asp-action="Conditions" asp-controller="About">Conditions</a>
                         </label>
+                        <span asp-validation-for="TermsAndConditions"></span>
                     </div>
-                    <span asp-validation-for="TermsAndConditions"></span>
                 </div>
                 <button class="input-submit btn btn-theme" type="submit">Sign up</button>
             </div>

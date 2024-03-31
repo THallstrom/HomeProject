@@ -1,19 +1,28 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+﻿@{
+    var theme = Context.Request.Cookies["theme"] ?? "light";
+    var isDarkMode = (theme == "dark") ? true : false;
+}
+
+
+<!DOCTYPE html>
+<html lang="en" class="@theme">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Silicon</title>
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 </head>
-<body>    
-    <partial name="~/views/partials/sections/_header.cshtml" />
-    
-            @RenderBody()
-    <partial name="~/views/partials/sections/_footer.cshtml" /> 
+<body>
+    <div class="wrapper">
+        <partial name="~/views/shared/_cookie.cshtml" />
+        <partial name="~/views/partials/sections/_header.cshtml" />
+                @RenderBody()
+        <partial name="~/views/partials/sections/_footer.cshtml" />
+    </div>
     <script src="https://kit.fontawesome.com/a041cc045c.js" asp-append-version="true"
             crossorigin="anonymous"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/js/lightdark.js" asp-append-version="true"></script>
+    <script src="~/js/validation.js" asp-append-version="true"></script>
 </body>
 </html>
