@@ -1,4 +1,5 @@
 ﻿using Infrastructure.Context;
+using Infrastructure.Migrations;
 using Microsoft.AspNetCore.Mvc;
 using Silicon.Models;
 
@@ -13,7 +14,7 @@ namespace Silicon.Controllers
             _dataContext = dataContext;
         }
 
-        public ActionResult Courses()
+        public ActionResult Courses(string catergory = "", int pageNumber = 1, int pageSize = 6)
         {
             var viewModel = new CoursesViewModel();
 
@@ -22,6 +23,10 @@ namespace Silicon.Controllers
 
             if (courseEntities != null && courseEntities.Count != 0)
             {
+                if (!string.IsNullOrEmpty(catergory) && catergory != "all")
+                {
+                    var test = catergory;
+                }
                 var cat = categoryEntities.Select(categoryEntities => new Category
                 {
                     CategoryName = categoryEntities.CategoryName
@@ -29,8 +34,7 @@ namespace Silicon.Controllers
 
                 viewModel.Categories = cat;
                 
-
-                var courseViewModels = courseEntities.Select(courseEntity => new Course
+                var course = courseEntities.Select(courseEntity => new Course
                 {
                     Title = courseEntity.Title,
                     Author = courseEntity.Author,
@@ -45,8 +49,22 @@ namespace Silicon.Controllers
                     // Lägg till andra egenskaper här om det behövs
                 }).ToList();
 
-                viewModel.Courses = courseViewModels;
+                int totalItemCount = courseEntities.Count();
+                var totalPages = (int)Math.Ceiling(totalItemCount / (double)pageSize);
 
+                viewModel.Paginering = new Paginering
+                {
+                    PageSize = pageSize,
+                    CurrentPage = pageNumber,
+                    TotalPages = totalPages,
+                    TotalCount = totalItemCount,
+                };
+
+                var coursesForPage = course.Skip((pageNumber - 1) * pageSize)
+                                            .Take(pageSize)
+                                            .ToList();
+
+                viewModel.Courses = coursesForPage;
                 return View(viewModel);
             }
             else

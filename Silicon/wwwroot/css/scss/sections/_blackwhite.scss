@@ -1,0 +1,14 @@
+.bwTotal {
+    width: 100%;
+    height: 988px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    .black{
+        background-color: var(--color-black);
+        color: var(--color-white)
+    }
+    .white {
+        background-color: var(--color-white);
+        color: var(--color-black)
+    }
+}

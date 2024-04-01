@@ -1,5 +1,8 @@
 .course {
     .container {
+        display: flex;
+        flex-direction: column;
+
         .course-header {
             display: flex;
             align-items: center;
@@ -20,6 +23,7 @@
                 .courseImg {
                     position: relative;
                     display: inline-block;
+
                     .circle {
                         position: absolute;
                         top: 0;
@@ -28,37 +32,62 @@
                         margin: 16px;
                         padding: 10px;
                         border-radius: 50%;
-                        i{
+
+                        i {
                             display: flex;
                             align-items: center;
                             justify-content: center;
                             width: 16px;
                             height: 16px;
                             color: var(--color-gray-800)
-                            
                         }
                     }
-                        .clicked{
-                            background-color: var(--color-gray-600);
-                            i{
-                                color: var(--color-white);
-                            }
 
+                    .clicked {
+                        background-color: var(--color-gray-600);
+
+                        i {
+                            color: var(--color-white);
                         }
-                    .div-seller{
+                    }
+
+                    .div-seller {
                         display: flex;
                         margin: 16px;
                         position: absolute;
                         top: 0;
                         left: 0;
+
                         .BSeller {
                             color: var(--color-white);
                             background-color: var(--color-green);
                             padding: 0 8px;
-                            border-radius: 8px;   
+                            border-radius: 8px;
                         }
                     }
                 }
+            }
+        }
+
+        .pagination {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+
+            .number {
+                background-color: var(--color-gray-300);
+                padding: 16px 20px;
+                border: none;
+                border-radius: 8px;
+                font-weight: 600;
+                color: var(--color-gray-800);
+                text-decoration: none;
+            }
+
+            .number-active {
+                background-color: var(--color-theme);
+                @include shadow-secundary;
             }
         }
     }

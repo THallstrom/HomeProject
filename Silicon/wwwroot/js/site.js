@@ -34,17 +34,31 @@ function select() {
             selectOptions.style.display = selectOptions.style.display === 'block' ? 'none':'block'
         })
 
-        let options = selectOptions.querySelectorAll('option')
+        let options = selectOptions.querySelectorAll('.option')
 
         options.forEach(function (option) {
             option.addEventListener('click', function () {
                 selected.innerHTML = this.textContent
                 selectOptions.style.display = 'none'
                 let category = this.getAttribute('data-value')
+
+                updateCourseByFilter(category)
             })
         })
     }
     catch { }
+}
+
+function updateCourseByFilter(category) {
+    const url = `/courses/index?category=${encodeURIComponent(category)}`
+
+    fetch(url)
+        .then(res => res.text())
+        .then(data => {
+            const parser = new DOMParser()
+            const dom = parser.parseFromString(data, 'text/html')
+            document.querySelector('.course-expose-area').innerHTML = dom.querySelector('.course-expose-area').innerHTML
+        })
 }
 
 function circle() {

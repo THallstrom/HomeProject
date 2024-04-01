@@ -3,7 +3,7 @@
 namespace Silicon.Models
 {
     public class AccountDetailViewModel
-    {
+    {         
         [Display(Name = "Firstname", Prompt ="Enter your name")]
         [DataType(DataType.Text)]
         public string FirstName { get; set; } = null!;

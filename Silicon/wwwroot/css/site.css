@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
+﻿@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
 :root {
   --color-white: #ffffff;
   --color-black: #000000;
@@ -396,6 +396,7 @@ label {
   right: 0;
   bottom: 0;
   background-color: var(--color-gray-700);
+  -webkit-transition: 0.4s;
   transition: 0.4s;
 }
 
@@ -407,6 +408,7 @@ label {
   left: 4px;
   bottom: 4px;
   background-color: white;
+  -webkit-transition: 0.4s;
   transition: 0.4s;
 }
 
@@ -461,9 +463,6 @@ form select {
   padding: 15px;
   border-radius: 8px;
   border: 1px solid var(--color-gray-400);
-}
-form input::-moz-placeholder, form textarea::-moz-placeholder, form select::-moz-placeholder {
-  opacity: 0.5;
 }
 form input::placeholder,
 form textarea::placeholder,
@@ -1210,6 +1209,21 @@ header .container .btn-menu {
   width: 100%;
 }
 
+.bwTotal {
+  width: 100%;
+  height: 988px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.bwTotal .black {
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+.bwTotal .white {
+  background-color: var(--color-white);
+  color: var(--color-black);
+}
+
 .count .container {
   display: grid;
   grid-template-areas: "info" "account";
@@ -1388,6 +1402,10 @@ header .container .btn-menu {
   padding: 16px 0 48px 0;
 }
 
+.course .container {
+  display: flex;
+  flex-direction: column;
+}
 .course .container .course-header {
   display: flex;
   align-items: center;
@@ -1441,6 +1459,25 @@ header .container .btn-menu {
   background-color: var(--color-green);
   padding: 0 8px;
   border-radius: 8px;
+}
+.course .container .pagination {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+.course .container .pagination .number {
+  background-color: var(--color-gray-300);
+  padding: 16px 20px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  color: var(--color-gray-800);
+  text-decoration: none;
+}
+.course .container .pagination .number-active {
+  background-color: var(--color-theme);
+  box-shadow: 0 8px 18px -8px var(--color-gray-400);
 }
 
 .contact-page {

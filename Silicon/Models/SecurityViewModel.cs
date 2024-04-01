@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Silicon.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace Silicon.models;
 

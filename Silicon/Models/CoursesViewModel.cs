@@ -1,8 +1,10 @@
-﻿namespace Silicon.Models
+﻿
+namespace Silicon.Models
 {
     public class CoursesViewModel
     {
         public IEnumerable<Category>? Categories { get; set; }
         public IEnumerable<Course>? Courses { get; set; }
+        public Paginering? Paginering { get; set; }
     }
 }

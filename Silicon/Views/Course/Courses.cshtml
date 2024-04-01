@@ -4,6 +4,7 @@
     ViewData["Title"] = "Courses";
 }
 
+
 <section class="course">
     <div class="container">
         <div class="course-header">
@@ -29,6 +30,7 @@
         </div>
         <div class="course-expose-area">
             @if (Model.Courses != null)
+
 
             @foreach (var course in Model.Courses)
             {
@@ -76,5 +78,23 @@
                 </div>
             }
         </div>
+        @if (Model.Paginering != null)
+        {
+            <div class="pagination">
+                @for (int i = 1; i <= Model.Paginering.TotalPages; i++)
+                {
+                    if (i == Model.Paginering.CurrentPage)
+                    {
+                        <span class="number number-active">@i</span>
+                    }
+                    else
+                    {
+                        <a class="number" href="@Url.Action("Courses", new { pageNumber = i, pageSize = Model.Paginering.PageSize })">@i</a>
+                    }
+                }
+            </div>
+        }
+
+
     </div>
 </section>
