@@ -14,34 +14,34 @@
             <form asp-action="Security" asp-controller="Account" method="post">
             <div class="security-input">
                 <div class="info-input cPassword">
-                    <label asp-for="CurrentPassword"></label>
-                    <input asp-for="CurrentPassword">
+                    <label asp-for="Password.CurrentPassword"></label>
+                    <input asp-for="Password.CurrentPassword">
                 </div>
                 <div class="info-input nPassword">
-                    <label asp-for="NewPassword"></label>
-                    <input asp-for="NewPassword">
+                        <label asp-for="Password.NewPassword"></label>
+                        <input asp-for="Password.NewPassword">
                 </div>
                 <div class="info-input conPassword">
-                    <label asp-for="ConfirmPassword"></label>
-                    <input asp-for="ConfirmPassword">
+                        <label asp-for="Password.ConfirmPassword"></label>
+                        <input asp-for="Password.ConfirmPassword">
                 </div>
             </div>
-            </form>
             <div class="acc-btn">
                 <button class="btn-secundary">Cancel</button>
                 <button class="btn-theme">Change Password</button>
             </div>
-            <div class="security-delete">
+            </form>
+            <form method="post" asp-action="DeleteAccount" asp-controller="Account" class="security-checkbox">
+                <div class="security-delete">
                 <h5>Delete account</h5>
-                <p class="body-m-700">When you delete your account, your public profile will be deactivated immediately. If you change your
+                    <p class="body-m-700">When you delete your account, your public profile will be deactivated immediately. If you change your
                     mind before the 14 days are up, sign in with your email and password, and we’ll send you a link to
                     reactivate your account.</p>
-                <div class="security-checkbox">
-                    <input type="checkbox">
-                    <p class="no-m-p">Yes, I want to delete my account.</p>
+                    <input asp-for = "Delete.DeleteAccount">
+                    <label asp-for = "Delete.DeleteAccount"></label>
+                    <button type="submit" class="btn-danger">Delete</button>
                 </div>
-                <button class="btn-danger">Delete</button>
-            </div>
+            </form>
         </div>
     </div>
 

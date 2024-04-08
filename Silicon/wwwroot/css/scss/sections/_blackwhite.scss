@@ -1,14 +1,84 @@
 .bwTotal {
+  height: 988px;
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .w-text {
+    text-align: center;
     width: 100%;
-    height: 988px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    .black{
-        background-color: var(--color-black);
-        color: var(--color-white)
+    user-select: none;
+    color: var(--color-white);
+    @include font-d3;
+  }
+  .b-text {
+    text-align: center;
+    width: 100%;
+    user-select: none;
+    color: var(--color-black);
+    @include font-d3;
+  }
+  .background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background-color: var(--color-black);
+  }
+
+  .text-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 6em;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    div {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
     }
-    .white {
-        background-color: var(--color-white);
-        color: var(--color-black)
-    }
+  }
+}
+.image-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 640px;
+  margin: 0 auto;
+  user-select: none;
+  img {
+    display: block;
+    margin: 0 auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+#slider-bw {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3px;
+  height: 100%;
+  background-color: var(--color-theme);
+  cursor: ew-resize;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    height: 36px;
+    width: 36px;
+  }
 }

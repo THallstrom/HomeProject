@@ -23,15 +23,13 @@
                 </div>
 
                 <div class="input-seach-group">
-                    <input class="no-m-p" id="searchQuary" name="searchquary" placeholder="Search courses"/>
+                    <input class="no-m-p" id="searchQuary" name="searchQuery" placeholder="Search courses" />
                     <i class="fa-regular fa-search"></i>
                 </div>
             </form>
         </div>
         <div class="course-expose-area">
             @if (Model.Courses != null)
-
-
             @foreach (var course in Model.Courses)
             {
                 <div asp-action="Home" asp-controller="Default" class="courseCard">
@@ -51,17 +49,15 @@
                         <div class="courseInfo">
                             <h5 class="no-m-p">@course.Title</h5>
                             <p class="body-s-700 no-m-p">By @course.Author</p>
-                            @if (course.DiscountPrice == "0")
+                            @if (course.DiscountPrice == "0" || course.DiscountPrice == null)
                             {
                                 <p class="no-m-p price">$ @course.OriginalPrice.ToString()</p>
                             } else
                             {
                                 <div class="ifdiscount">
-
                                 <p class="no-m-p disc-price">$ @course.DiscountPrice.ToString()</p>
                                 <p class="no-m-p disc-price-original">$ @course.OriginalPrice.ToString()</p>
                                 </div>
-                                
                             }
                         </div>
                         <div class="courseTime">
@@ -78,7 +74,7 @@
                 </div>
             }
         </div>
-        @if (Model.Paginering != null)
+        @if (Model.Paginering != null && Model.Paginering.TotalPages > 1 )
         {
             <div class="pagination">
                 @for (int i = 1; i <= Model.Paginering.TotalPages; i++)

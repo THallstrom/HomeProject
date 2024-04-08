@@ -1,13 +1,25 @@
+@{
+    var user = await UserManager.GetUserAsync(User);
+}
+
+@if (user != null)
+{   
 <div class="p-info">
     <div class="p-info-img">
-        <img class="p-info-image" src="~/images/profileImage/IMG-20240112-WA0005.jpeg" alt="">
+            <img class="p-info-image" src="@Configuration["filePath:ProfileImagePath"]/@user.ProfilePicture" alt="">
+
+        <form enctype="multipart/form-data"  method="post" asp-action="ImageUploader" asp-controller="Account" class="toppen">
+            <input id="fileUpLoader" type="file" name="file" hidden />
+            <label for="fileUpLoader" class="btn btn-circle btn-circle-sm"><i class="fa-regular fa-refresh"></i></label>
+        </form>
     </div>
-    <h4 class="no-m-p">John</h4>
-    <p class="no-m-p">John.doe@domian.com</p>
-    <div class="acc-btn">
-        <a asp-action="AccountDetails" asp-controller="Account" class="btn-theme"><i class="fa-regular fa-gear"></i>Account Details</a>
-        <a asp-action="Security" asp-controller="Account" class="btn-secundary"><i class="fa-regular fa-lock"></i>Security</a>
-        <a asp-action="SavedCourses" asp-controller="Account" class="btn-secundary"><i class="fa-regular fa-bookmark"></i>Saved Courses</a>
-        <a asp-action="SignOut" asp-controller="Auth" class="btn-secundary"><i class="fa-duotone fa-arrow-right-from-bracket"></i>Sign Out</a>
+    <h4 class="no-m-p">@user.FirstName @user.LastName</h4>
+    <p class="no-m-p">@user.Email</p>
+    <div class="acc-btn ">
+            <a asp-action="AccountDetails" asp-controller="Account" class="btn-secundary link-btn"><i class="fa-regular fa-gear"></i>Account Details</a>
+            <a asp-action="Security" asp-controller="Account" class="btn-secundary link-btn"><i class="fa-regular fa-lock"></i>Security</a>
+            <a asp-action="SavedCourses" asp-controller="Account" class="btn-secundary link-btn"><i class="fa-regular fa-bookmark"></i>Saved Courses</a>
+            <a asp-action="SignOut" asp-controller="Auth" class="btn-secundary link-btn"><i class="fa-duotone fa-arrow-right-from-bracket"></i>Sign Out</a>
     </div>
 </div>
+}

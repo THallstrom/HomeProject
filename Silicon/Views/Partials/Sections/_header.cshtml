@@ -1,9 +1,8 @@
 ﻿@{
     var theme = Context.Request.Cookies["theme"] ?? "light";
     var isDarkMode = (theme == "dark") ? true : false;
+    var user = await UserManager.GetUserAsync(User);
 }
-
-
 
 <header>
     <div class="container">
@@ -11,13 +10,12 @@
             <img src="~/images/logos/@(theme).svg" alt="Silicon logo" id="logoImg" />
         </a>
 
-        @if (User.Identity.IsAuthenticated)
+        @if (SignInManager.IsSignedIn(User))
         {
             <nav>
                 <a asp-action="Home" asp-controller="Default" class="nav-link">Overview</a>
                 <a asp-action="Courses" asp-controller="Course" class="nav-link">Courses</a>
                 <a asp-action="Contact" asp-controller="Default" class="nav-link">Contact</a>
-                <a asp-action="AccountDetails" asp-controller="Account" class="nav-link">Account</a>
             </nav>
         }
         else
@@ -25,10 +23,13 @@
             <nav>
                 <a asp-action="Home" asp-controller="Default" class="nav-link">Overview</a>
                 <a asp-action="Home" asp-controller="Default" class="nav-link">Features</a>
+                <a asp-action="Courses" asp-controller="Course" class="nav-link">Courses</a>
                 <a asp-action="Contact" asp-controller="Default" class="nav-link">Contact</a>
             </nav>
-        }
+        } 
+
         <div class="theme-switch">
+            
             <label for="theme-switch-mode">Light</label>
             <label class="switch">
                 <input id="theme-switch-mode" type="checkbox" checked="@isDarkMode">
@@ -36,12 +37,28 @@
             </label>
             <label for="theme-switch-mode">Dark</label>
         </div>
-        <div class="account-buttons">
-            <a class="btn-secundary" asp-action="SignIn" asp-controller="Auth"><img
-                    class="fa-regular fa-arrow-right-to-bracket">Sign in</i></a>
-            <a class="btn-theme" asp-action="SignUp" asp-controller="Auth"><img class="fa-regular fa-user">Sign
-                up</i></a>
-        </div>
+
+                  
+
+            <div class="account-buttons">
+                @if (SignInManager.IsSignedIn(User) && user != null) {
+                <div class="user-link">
+                    <a asp-action="AccountDetails" asp-controller="Account">
+                        <img src="~/images/profileImage/@user.ProfilePicture" alt="Img on user" />
+                    </a>    
+                </div>
+                } 
+            else
+                {                
+                <a class="btn-secundary" asp-action="SignIn" asp-controller="Auth">
+                    <i class="fa-regular fa-arrow-right-to-bracket"></i>Sign in
+                </a>
+                <a class="btn-theme" asp-action="SignUp" asp-controller="Auth">
+                    <i class="fa-regular fa-user"></i>Sign up
+                </a>
+                }                
+            </div>
+        
         <button class="btn-menu"><i class="fa-regular fa-bars"></i></button>
     </div>
 </header>

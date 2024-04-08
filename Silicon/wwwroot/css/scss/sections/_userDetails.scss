@@ -1,7 +1,7 @@
 .p-info {
       grid-area: info;
       display: grid;
-      justify-items: start;
+      justify-items: center;
       align-items: center;
       align-content: center;
       gap: 10px;
@@ -13,18 +13,26 @@
       }
 
       .p-info-img {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 120px;
-        height: 120px;
-        overflow: hidden;
-        border-radius: 50%;
+        position: relative;     
 
         .p-info-image {
-          width: 100%;
-          height: auto;
-          border-radius: 10px;
+            width: 120px;
+            border-radius: 50%;
+            height: 120px;
+            object-fit: cover;
+        }
+        form{
+            position: relative;
+            label{
+                bottom: 10px;
+                right: 0;
+                position:absolute;
+                i{
+                    display: flex;
+                    align-items: center;
+                    justify-items: center;
+                }
+            }
         }
       }
 

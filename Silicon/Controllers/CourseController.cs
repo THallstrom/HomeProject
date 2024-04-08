@@ -1,70 +1,57 @@
 ﻿using Infrastructure.Context;
 using Infrastructure.Migrations;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Silicon.Factories;
 using Silicon.Models;
 
 namespace Silicon.Controllers
 {
-    public class CourseController : Controller
+    public class CourseController(DataContext dataContext) : Controller
     {
-        private readonly DataContext _dataContext;
-
-        public CourseController(DataContext dataContext)
+        private readonly DataContext _dataContext = dataContext;
+        public async Task <IActionResult> Courses(string category = "", string searchQuery = "", int pageNumber = 1,
+            int pageSize = 6)
         {
-            _dataContext = dataContext;
-        }
-
-        public ActionResult Courses(string catergory = "", int pageNumber = 1, int pageSize = 6)
-        {
-            var viewModel = new CoursesViewModel();
-
-            List<Infrastructure.Entities.CourseEntity> courseEntities = [.. _dataContext.Courses]; // Hämta alla kurser från databasen
-            List<Infrastructure.Entities.CategoryEntity> categoryEntities = [.. _dataContext.Categories];
-
-            if (courseEntities != null && courseEntities.Count != 0)
+            var viewModel = new CoursesViewModel
             {
-                if (!string.IsNullOrEmpty(catergory) && catergory != "all")
-                {
-                    var test = catergory;
-                }
-                var cat = categoryEntities.Select(categoryEntities => new Category
-                {
-                    CategoryName = categoryEntities.CategoryName
-                });
+                Categories = CategoryFactory.Create(await _dataContext.Categories.ToListAsync())
+            };
 
-                viewModel.Categories = cat;
+            var quary = _dataContext.Courses
+                .Include(i => i.Category)
+                .AsQueryable();
+
+            if (!string.IsNullOrEmpty(searchQuery) )
+            {
+                quary = quary.Where(x => x.Title.Contains(searchQuery));
+            }
+
+            if (!string.IsNullOrEmpty(category) && category != "all")
+            {
+                quary = quary.Where(x => x.Category!.CategoryName == category);
+            }
+
+            var filteredCourses = await quary.ToListAsync();
+            
+            if (filteredCourses.Count != 0 && filteredCourses != null)
+            {
                 
-                var course = courseEntities.Select(courseEntity => new Course
-                {
-                    Title = courseEntity.Title,
-                    Author = courseEntity.Author,
-                    OriginalPrice = courseEntity.OriginalPrice,
-                    Hours = courseEntity.Hours,
-                    ImageUrl = courseEntity.ImageUrl,
-                    NumbersOfLikes = courseEntity.NumbersOfLikes,
-                    LikesInProcent = courseEntity.LikesInProcent,
-                    DiscountPrice = courseEntity.DiscountPrice,
-                    IsDigital = courseEntity.IsDigital,
-                    IsBestSeller = courseEntity.IsBestSeller,
-                    // Lägg till andra egenskaper här om det behövs
-                }).ToList();
-
-                int totalItemCount = courseEntities.Count();
-                var totalPages = (int)Math.Ceiling(totalItemCount / (double)pageSize);
-
+                var totalItemsCount = await quary.CountAsync();
+                var totalPages = (int)Math.Ceiling(totalItemsCount / (double)pageSize);
                 viewModel.Paginering = new Paginering
                 {
                     PageSize = pageSize,
                     CurrentPage = pageNumber,
                     TotalPages = totalPages,
-                    TotalCount = totalItemCount,
+                    TotalCount = totalItemsCount
+
                 };
+                var coursesForPage = quary.Skip((pageNumber - 1) * pageSize)
+                                .Take(pageSize)
+                                .ToList();
 
-                var coursesForPage = course.Skip((pageNumber - 1) * pageSize)
-                                            .Take(pageSize)
-                                            .ToList();
-
-                viewModel.Courses = coursesForPage;
+                viewModel.Courses = CourseFactory.Create(coursesForPage);
                 return View(viewModel);
             }
             else
@@ -72,6 +59,5 @@ namespace Silicon.Controllers
                 return View(new List<CourseViewModel>()); // Om det inte finns några kurser, skicka en tom lista till vyn
             }
         }
-
     }
 }

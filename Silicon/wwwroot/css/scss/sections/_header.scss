@@ -86,6 +86,21 @@ header {
                 display: flex;
                 transform: translateX(0);
             }
+
+            img {
+                height: 100px;
+                width: auto;
+            }
+
+            .user-link{
+                img{
+                    height: 44px;
+                    width: 44px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                }
+            }
+
         }
 
         .btn-menu {

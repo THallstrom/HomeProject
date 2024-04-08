@@ -42,6 +42,6 @@ public class CategoryFactory
             }
         }
         catch (Exception ex) { }
-        return null!;
+        return categories;
     }
 }

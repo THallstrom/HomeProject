@@ -1,0 +1,6 @@
+@ContactSilicon_HostAddress = http://localhost:5016
+
+GET {{ContactSilicon_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
