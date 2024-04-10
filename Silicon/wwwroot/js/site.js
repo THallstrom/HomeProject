@@ -5,10 +5,11 @@ document.addEventListener("DOMContentLoaded", () => {
     handleImgUploader()
     active()
     textSearch()
-    test()
+    slideBlackWhite()
+    darkmode()
 })
 
-function test() {
+function slideBlackWhite() {
     var slider = document.getElementById("slider-bw");
     var lightImage = document.querySelector('.light-image');
     var darkImage = document.querySelector('.dark-image');
@@ -167,4 +168,18 @@ function active() {
             link.classList.add('btn-secundary');
         }
     });   
+}
+
+function darkmode() {
+    try {
+        let themeSwitch = document.querySelector("#theme-switch-mode");
+
+        themeSwitch.addEventListener("change", function () {
+            let mode = this.checked ? "dark" : "light";
+            fetch(`/sitesettings/theme?mode=${mode}`).then((res) => {
+                if (res.ok) window.location.reload();
+                else console.log("unable to switch to theme mode");
+            });
+        });
+    } catch { }
 }
