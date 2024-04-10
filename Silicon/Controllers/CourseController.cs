@@ -1,5 +1,4 @@
 ﻿using Infrastructure.Context;
-using Infrastructure.Migrations;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Silicon.Factories;
@@ -10,7 +9,9 @@ namespace Silicon.Controllers
     public class CourseController(DataContext dataContext) : Controller
     {
         private readonly DataContext _dataContext = dataContext;
-        public async Task <IActionResult> Courses(string category = "", string searchQuery = "", int pageNumber = 1,
+
+        #region Courses
+        public async Task<IActionResult> Courses(string category = "", string searchQuery = "", int pageNumber = 1,
             int pageSize = 6)
         {
             var viewModel = new CoursesViewModel
@@ -22,7 +23,7 @@ namespace Silicon.Controllers
                 .Include(i => i.Category)
                 .AsQueryable();
 
-            if (!string.IsNullOrEmpty(searchQuery) )
+            if (!string.IsNullOrEmpty(searchQuery))
             {
                 quary = quary.Where(x => x.Title.Contains(searchQuery));
             }
@@ -33,10 +34,10 @@ namespace Silicon.Controllers
             }
 
             var filteredCourses = await quary.ToListAsync();
-            
+
             if (filteredCourses.Count != 0 && filteredCourses != null)
             {
-                
+
                 var totalItemsCount = await quary.CountAsync();
                 var totalPages = (int)Math.Ceiling(totalItemsCount / (double)pageSize);
                 viewModel.Paginering = new Paginering
@@ -59,5 +60,32 @@ namespace Silicon.Controllers
                 return View(new List<CourseViewModel>()); // Om det inte finns några kurser, skicka en tom lista till vyn
             }
         }
+        #endregion
+
+        #region SingleCourse
+        public async Task<IActionResult> SingleCourse(string Id)
+        {
+
+            if (!string.IsNullOrEmpty(Id))
+            {
+                var entity = await _dataContext.Courses.FirstOrDefaultAsync(x => x.Id == Id);
+
+                if (entity != null)
+                {
+                    var viewModel = new SingleCourseViewModel();
+                    var teacherEntity = await _dataContext.Teachers.FirstOrDefaultAsync(x => x.Id == entity.TeacherId);
+                    if (teacherEntity != null)
+                    {
+                        viewModel.Teacher = TeacherFactory.CreateTeacher(teacherEntity);
+                    }
+                    viewModel.SingleCourseView = CourseFactory.CreateSingle(entity);
+                    return View(viewModel);
+                }
+
+            }
+
+            return RedirectToAction("Home", "Default");
+        }
+        #endregion
     }
 }

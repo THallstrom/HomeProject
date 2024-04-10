@@ -1,0 +1,66 @@
+﻿@model SingleCourseViewModel
+
+<section class="hero">
+    <div class="container">
+        <div class="file-path">Kommer en länkväg</div>
+        <div class="scTitel">
+            <div class="ifstate">
+                <div class="seller">
+                    @if (Model.SingleCourseView.IsBestSeller == true)
+                    {
+                        <div class="div-Seller">
+                            <p class="bSeller">Best Seller</p>
+                        </div>
+                    }
+                </div>
+                <div class="digital">
+                    @if (Model.SingleCourseView.IsDigital == true)
+                    {           
+                        <div class="div-digital">
+                            <p class="bDigital">Digital</p>              
+                        </div> 
+                    }
+                </div>
+            </div>
+            <h1>@Model.SingleCourseView.Title </h1>
+            <p class="p-gray">Egestas feugiat lorem eu neque suspendisse ullamcorper scelerisque aliquam mauris.</p>
+        </div>
+        <div class="meta">
+            <div>
+                <span>
+                    <i class="fa-solid fa-star yellow"></i>
+                    <i class="fa-solid fa-star yellow"></i>
+                    <i class="fa-solid fa-star yellow"></i>
+                    <i class="fa-solid fa-star yellow"></i>
+                    <i class="fa-regular fa-star"></i>
+                    (@Model.SingleCourseView.Review K reviews)
+                </span>    
+            </div> |
+                <div>
+                    <i class="fa-light fa-thumbs-up"></i>
+                    @Model.SingleCourseView.NumbersOfLikes K likes
+                </div>|
+                <div>
+                    <i class="fa-sharp fa-regular fa-clock"></i>
+                    @Model.SingleCourseView.Hours hours
+                </div>
+        </div>
+        <div class="author-info">
+            @if (Model.SingleCourseView.TeacherID != null)
+            {   
+                <img src="/images/TeacherProfilPicture/@Model.Teacher.Image" alt="Profile picture" />
+                <div class="author-info-text">
+                    <h6>Created by</h6>
+                    <p>@Model.Teacher.Name</p>
+                </div>
+            } else
+            {
+                <img src="/images/TeacherProfilPicture/Anonymus.png" alt="Profile picture" />
+                <div class="author-info-text">
+                    <h6>Created by</h6>
+                    <p>Not specified yet</p>
+                </div>
+            }
+        </div>
+    </div>
+</section>

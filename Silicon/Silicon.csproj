@@ -13,6 +13,7 @@
   <ItemGroup>
     <Folder Include="wwwroot\images\blackwhite\" />
     <Folder Include="wwwroot\images\Brands\" />
+    <Folder Include="wwwroot\images\SingleCourseImage\" />
   </ItemGroup>
 
   <ItemGroup>

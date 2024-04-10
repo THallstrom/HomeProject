@@ -10,7 +10,7 @@ public class ContactViewModel
 
     [Display(Name = "Email address", Prompt = "Enter your email address")]
     [DataType(DataType.EmailAddress)]
-    public string EmailAddress { get; set; } = null!;
+    public string Email { get; set; } = null!;
 
 
     [Display(Name = "Service", Prompt = "Choose the service you are interested in")]
@@ -21,4 +21,3 @@ public class ContactViewModel
     [DataType(DataType.Text)]
     public string Message { get; set; } = null!;
 }
-

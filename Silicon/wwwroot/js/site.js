@@ -13,7 +13,6 @@ function test() {
     var lightImage = document.querySelector('.light-image');
     var darkImage = document.querySelector('.dark-image');
     var background = document.querySelector('.background');
-    var text = document.querySelector('.bw-text')
     var btext = document.querySelector('.b-text')
     var wtext = document.querySelector('.w-text')
     var isDragging = false;

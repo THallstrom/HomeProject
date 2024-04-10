@@ -57,7 +57,7 @@ namespace Silicon.Factories
             {
                 return new Course
                 {
-                    Id = Guid.NewGuid().ToString(),
+                    Id = entity.Id,
                     Title = entity.Title,
                     Author = entity.Author,
                     OriginalPrice = entity.OriginalPrice,
@@ -69,7 +69,7 @@ namespace Silicon.Factories
                     LikesInProcent = entity.LikesInProcent,
                     ImageUrl = entity.ImageUrl,
                     BigImageUrl = entity.BigImageUrl,
-                    Category = entity.Category!.CategoryName
+                    Category = entity.Category!.CategoryName,
                 };
             }
             catch (Exception ex) { }
@@ -88,6 +88,34 @@ namespace Silicon.Factories
             }
             catch (Exception ex) { }
             return courses;
+        }
+
+        public static SingleCourseView CreateSingle(CourseEntity entity)
+        {
+            try
+            {
+                return new SingleCourseView
+                {
+                    Id = entity.Id,
+                    Title = entity.Title,
+                    Author = entity.Author,
+                    OriginalPrice = entity.OriginalPrice,
+                    DiscountPrice = entity.DiscountPrice,
+                    Hours = entity.Hours,
+                    IsDigital = entity.IsDigital,
+                    IsBestSeller = entity.IsBestSeller,
+                    NumbersOfLikes = entity.NumbersOfLikes,
+                    LikesInProcent = entity.LikesInProcent,
+                    ImageUrl = entity.ImageUrl,
+                    BigImageUrl = entity.BigImageUrl,
+                    Review = entity.Reviews,
+                    TeacherID = entity.TeacherId
+                    
+                    
+                };
+            }
+            catch (Exception ex) { }
+            return null!;
         }
     }
 }

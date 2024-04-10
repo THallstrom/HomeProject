@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
+﻿@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
 :root {
   --color-white: #ffffff;
   --color-black: #000000;
@@ -15,6 +15,7 @@
   --color-gray-900: #0b0f19;
   --color-danger: #EF4444;
   --color-green: #22C55E;
+  --color-yellow: #FFBA08;
 }
 
 :root.dark {
@@ -97,6 +98,8 @@ h1 {
   line-height: 1.5;
   font-weight: 800;
   font-size: 2.5em !important;
+  margin: 0;
+  padding: 0;
 }
 
 h2 {
@@ -137,6 +140,8 @@ h6 {
   line-height: 1.5;
   font-weight: 800;
   font-size: 1em !important;
+  margin: 0;
+  padding: 0;
   margin: 0;
   padding: 0;
 }
@@ -424,6 +429,7 @@ label {
   right: 0;
   bottom: 0;
   background-color: var(--color-gray-700);
+  -webkit-transition: 0.4s;
   transition: 0.4s;
 }
 
@@ -435,6 +441,7 @@ label {
   left: 4px;
   bottom: 4px;
   background-color: white;
+  -webkit-transition: 0.4s;
   transition: 0.4s;
 }
 
@@ -489,9 +496,6 @@ form select {
   padding: 15px;
   border-radius: 8px;
   border: 1px solid var(--color-gray-400);
-}
-form input::-moz-placeholder, form textarea::-moz-placeholder, form select::-moz-placeholder {
-  opacity: 0.5;
 }
 form input::placeholder,
 form textarea::placeholder,
@@ -720,8 +724,7 @@ header .container .account-buttons .user-link img {
   height: 44px;
   width: 44px;
   border-radius: 50%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 header .container .btn-menu {
   grid-area: hamburger;
@@ -1261,9 +1264,7 @@ header .container .btn-menu {
 .bwTotal .w-text {
   text-align: center;
   width: 100%;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  user-select: none;
   color: var(--color-white);
   font-family: "Manrope", sans-serif;
   line-height: 1.5;
@@ -1273,9 +1274,7 @@ header .container .btn-menu {
 .bwTotal .b-text {
   text-align: center;
   width: 100%;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  user-select: none;
   color: var(--color-black);
   font-family: "Manrope", sans-serif;
   line-height: 1.5;
@@ -1312,9 +1311,7 @@ header .container .btn-menu {
   width: 100%;
   height: 640px;
   margin: 0 auto;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  user-select: none;
 }
 .image-container img {
   display: block;
@@ -1346,7 +1343,7 @@ header .container .btn-menu {
 
 .count .container {
   display: grid;
-  grid-template-areas: "info" "account";
+  grid-template-areas: "info" "acc";
 }
 @media (min-width: 768px) {
   .count .container {
@@ -1355,7 +1352,7 @@ header .container .btn-menu {
   }
 }
 .count .container .account {
-  grid-area: account;
+  grid-area: acc;
   width: 100%;
 }
 @media (min-width: 768px) {
@@ -1433,8 +1430,7 @@ header .container .btn-menu {
   width: 120px;
   border-radius: 50%;
   height: 120px;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 .p-info .p-info-img form {
   position: relative;
@@ -1548,6 +1544,9 @@ header .container .btn-menu {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 24px;
+}
+.course .container .course-expose-area a {
+  text-decoration: none;
 }
 .course .container .course-expose-area .courseCard .courseImg {
   position: relative;
@@ -1726,5 +1725,84 @@ header .container .btn-menu {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-weight: 600;
+}
+
+.hero {
+  background-color: aqua;
+  background-image: url("../../../images/SingleCourseImage/Laptop.svg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+.hero .container {
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+.hero .container .file-path {
+  margin: 33px 0 0 0;
+}
+.hero .container .scTitel {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 72px;
+  margin-bottom: 50px;
+}
+.hero .container .scTitel .p-gray {
+  color: var(--color-gray-400);
+}
+.hero .container .scTitel .ifstate {
+  display: flex;
+  gap: 8px;
+}
+.hero .container .scTitel .ifstate .seller .div-Seller {
+  color: var(--color-white);
+  padding: 0 8px;
+  border-radius: 8px;
+  background-color: var(--color-green);
+}
+.hero .container .scTitel .ifstate .digital .div-digital {
+  color: var(--color-gray-800);
+  padding: 0 8px;
+  border-radius: 8px;
+  background-color: var(--color-gray-200);
+  font-family: "Manrope", sans-serif;
+  line-height: 1.5;
+  font-weight: 600;
+}
+.hero .container .meta {
+  display: flex;
+  margin-bottom: 150px;
+  color: var(--color-gray-400);
+  gap: 32px;
+}
+.hero .container .meta .yellow {
+  color: var(--color-yellow);
+}
+.hero .container .author-info {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 50px;
+}
+.hero .container .author-info img {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+}
+.hero .container .author-info .author-info-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.hero .container .author-info .author-info-text h6 {
+  font-family: "Manrope", sans-serif;
+  line-height: 1.5;
+  font-weight: 800;
+}
+.hero .container .author-info .author-info-text p {
+  font-family: "Manrope", sans-serif;
+  line-height: 1.5;
   font-weight: 600;
 }

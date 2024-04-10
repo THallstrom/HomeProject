@@ -1,7 +1,7 @@
 .count {
   .container {
     display: grid;
-    grid-template-areas: "info" "account";
+    grid-template-areas: "info" "acc";
 
     @include md {
       display: flex;
@@ -9,7 +9,7 @@
     }
 
     .account {
-      grid-area: account;
+      grid-area: acc;
       width: 100%;
       @include md {
         border-left: 1px solid var(--color-gray-400);

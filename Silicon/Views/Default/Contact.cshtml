@@ -32,29 +32,29 @@
         </div>
         <div class="contact-form">
             <h3>Get In Contact With Us</h3>
-            <form method="post" asp-controller="Default" asp-action="Contact">
+            <form method="post" asp-controller="Contact" asp-action="ContactRegistration">
                 <div class="form-content">
                     <div class="input-group input-fullname">
                         <label class="input-label" asp-for="FullName"></label>
                         <input asp-for="FullName" />
                     </div>
                     <div class="input-group input-emailaddress">
-                        <label class="input-label" asp-for="EmailAddress"></label>
-                        <input asp-for="EmailAddress" />
+                        <label class="input-label" asp-for="Email"></label>
+                        <input asp-for="Email" />
                     </div>
                     <div class="input-group input-service">
                         <label class="input-label" asp-for="Service"></label>
                         <select asp-for="Service">
-                            <option value="service1">Hej på dej</option>
-                            <option value="service2">Hej på mig</option>
-                            <option value="service3">Hej på Olle</option>
+                            <option value="Courses">Courses</option>
+                            <option value="Pricing">Pricing</option>
+                            <option value="Misc questions">Misc questions</option>
                         </select>
                     </div>
                     <div class="input-group input-message">
                         <label class="input-label" asp-for="Message"></label>
                         <textarea asp-for="Message" rows="6"></textarea>
                     </div>
-                    <button class="btn-theme contact-btn">Send Contact Request</button>
+                    <button type="submit" class="btn-theme contact-btn">Send Contact Request</button>
                 </div>
             </form>
         </div>

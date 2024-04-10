@@ -1,0 +1,87 @@
+.hero {
+    background-color: aqua;
+    background-image: url("../../../images/SingleCourseImage/Laptop.svg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+    .container {
+        color: white;
+        display: flex;
+        flex-direction: column;
+
+        .file-path {
+            margin: 33px 0 0 0;
+        }
+
+        .scTitel {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-top: 72px;
+            margin-bottom: 50px;
+
+            .p-gray {
+                color: var(--color-gray-400);
+            }
+
+            .ifstate {
+                display: flex;
+                gap: 8px;
+
+                .seller {
+                    .div-Seller {
+                        color: var(--color-white);
+                        padding: 0 8px;
+                        border-radius: 8px;
+                        background-color: var(--color-green);
+                    }
+                }
+
+                .digital {
+                    .div-digital {
+                        color: var(--color-gray-800);
+                        padding: 0 8px;
+                        border-radius: 8px;
+                        background-color: var(--color-gray-200);
+                        @include font-semibold;
+                    }
+                }
+            }
+        }
+
+        .meta {
+            display: flex;
+            margin-bottom: 150px;
+            color: var(--color-gray-400);
+            gap: 32px;
+
+            .yellow {
+                color: var(--color-yellow);
+            }
+        }
+
+        .author-info {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 50px; 
+            img{
+                height: 60px;
+                width: 60px;
+                border-radius: 50%;
+            }
+            .author-info-text {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                h6 {
+                    @include font-extrabold;
+                }
+
+                p {
+                    @include font-semibold;
+                }
+            }
+        }
+    }
+}
