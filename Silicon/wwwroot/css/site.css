@@ -262,6 +262,10 @@ label {
   color: var(--color-theme);
 }
 
+.sCourse {
+  padding-top: 2.5em;
+}
+
 .container {
   width: 100%;
   padding-right: 15px;
@@ -2173,11 +2177,13 @@ header .container .btn-menu {
 }
 .courseTeacherInfo .container .teacher-box .teacher-info .teacher-info-text p {
   margin: 0;
+  padding: 0 24px 0 0;
 }
 .courseTeacherInfo .container .teacher-box .teacher-info .courseTeacherBtn {
   display: flex;
   gap: 24px;
   margin: 40px 0 0 0;
+  padding: 0 24px 0 0;
 }
 
 .sliderBW {

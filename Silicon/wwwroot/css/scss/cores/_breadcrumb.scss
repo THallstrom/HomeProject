@@ -1,17 +1,22 @@
-.breadcrumb ul{
+.breadcrumb ul {
     display: flex;
     list-style: none;
     gap: 12px;
     padding: 0;
     color: var(--color-gray-600);
 
-    a{
+    a {
         display: flex;
         align-items: center;
         gap: 4px;
         color: var(--color-gray-600);
-        &:hover{
+
+        &:hover {
             color: var(--color-theme);
         }
     }
+
 }
+    .sCourse {
+        padding-top: 2.5em;
+    }
