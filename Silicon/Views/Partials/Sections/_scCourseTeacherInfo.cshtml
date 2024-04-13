@@ -1,0 +1,24 @@
+@model SingleCourseViewModel
+<div class="courseTeacherInfo">
+    <div class="container">
+        <div class="teacher-box">
+            <div class="test">
+                <img class="teacher-img" src="/images/TeacherProfilPicture/@Model.Teacher.Image" alt="Image of teacher">
+            </div>
+            <div class="teacher-info">
+
+                    <div class="teacher-info-text">
+                        <div class="teacher-info-text-person">
+                            <h5>Learn from the best</h5>
+                            <h1>@Model.Teacher.Name</h1>
+                        </div>
+                        <p>@Model.Teacher.Description</p>
+                    </div>
+                    <div class="courseTeacherBtn">
+                        <button class="btn btn-danger">@Model.Teacher.Subscribers k Subscribers</button>
+                        <button class="btn btn-theme">@Model.Teacher.Followers k Followers</button>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>

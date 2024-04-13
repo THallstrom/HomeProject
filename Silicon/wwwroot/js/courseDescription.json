@@ -1,0 +1,41 @@
+{
+  "CourseDescription": {
+    "title": "Course Description",
+    "content": "\"Embark on a comprehensive journey into the world of web development with our Fullstack Web Developer Course from Scratch. This hands-on program equips learners with essential skills to master both frontend and backend development. Dive into HTML, CSS, and JavaScript to craft captivating user interfaces and dynamic web experiences. Explore server-side programming with popular languages like Node.js, Python, or Ruby, alongside frameworks such as Express.js or Django. Gain proficiency in database management, deployment strategies, and version control with Git. By the end of this course, you'll have the expertise to design, build, and deploy fullstack web applications from scratch, making you a versatile and sought-after web developer in the industry.\""
+  },
+  "WhatYoullLearn": {
+    "title": "What you'll learn",
+    "topics": [
+      "HTML/CSS for web page structure and design.",
+      "JavaScript for interactive web development.",
+      "Backend languages like Node.js or Python.",
+      "Database management and interaction techniques.",
+      "Deployment and version control with Git and Heroku."
+    ]
+  },
+  "ProgramDetails": {
+    "title": "Program Details",
+    "courses": [
+      {
+        "title": "HTML/CSS",
+        "description": "Learn how to create the structure and style of web pages using HTML (Hypertext Markup Language) for content and CSS (Cascading Style Sheets) for presentation. This includes understanding semantic markup, responsive design, and modern layout techniques."
+      },
+      {
+        "title": "JavaScript",
+        "description": "Gain proficiency in JavaScript, the programming language of the web. Learn how to manipulate the DOM (Document Object Model), handle events, make asynchronous requests with AJAX, and build interactive user interfaces. Also, delve into modern frameworks and libraries like React, Vue.js, or Angular."
+      },
+      {
+        "title": "Backend Development",
+        "description": "Explore server-side programming languages and frameworks such as Node.js, Python with Django or Flask, Ruby on Rails, or Java with Spring Boot. Understand concepts like routing, middleware, authentication, and database interactions using technologies like Express.js or Flask-SQLAlchemy."
+      },
+      {
+        "title": "Databases",
+        "description": "Learn about database management systems like MySQL, PostgreSQL, MongoDB, or Firebase. Understand how to design and interact with databases, perform CRUD (Create, Read, Update, Delete) operations, and manage data effectively in web applications."
+      },
+      {
+        "title": "Deployment and Version Control",
+        "description": "Discover how to deploy your web applications to production environments using platforms like Heroku, AWS, or Firebase. Learn version control with Git, including branching, merging, and collaborating with others using platforms like GitHub or GitLab."
+      }
+    ]
+  }
+}

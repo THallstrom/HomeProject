@@ -31,6 +31,14 @@
         .rights {
             p {
                 margin: 0;
+                span{
+                    display: none;
+                }
+                @include lg {
+                    span{
+                        display: inline;
+                    }
+                }
             }
         }
     }

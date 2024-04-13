@@ -10,12 +10,18 @@ h2 {
 }
 h3 {
     @include font-h3;
+    margin: 0;
+    padding: 0;
 }
 h4 {
     @include font-h4;
+    margin: 0;
+    padding: 0;
 }
 h5 {
     @include font-h5;
+    margin: 0;
+    padding: 0;
 }
 h6 {
     @include font-h6;
@@ -39,6 +45,10 @@ h6 {
 
 .body-s-700 {
     @include body-s-700;
+}
+
+.theme {
+    color: var(--color-theme);
 }
 
 .no-m-p {

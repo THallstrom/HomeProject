@@ -1,0 +1,43 @@
+.info-card {
+  margin-top: 10px;
+  border-radius: 8px;
+  padding: 10px;
+  @include md {
+      min-width: 280px;
+      max-height: 385px;
+  }
+  @include lg {
+  min-width: 416px;
+  max-height: 458px;
+  padding: 40px;
+  }
+  @include shadow-secundary;
+  .inc-course {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 24px;
+    margin-bottom: 40px;
+    .inc-course-textline {
+      display: flex;
+      align-items: center;
+      color: var(--color-gray-700);
+      gap: 10px;
+      i {
+        color: var(--color-gray-600);
+        width: 20px;
+      }
+    }
+  }
+  .price-course {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 24px;
+    .org-disc-price {
+      color: var(--color-gray-600);
+      text-decoration: line-through;
+      @include font-standard;
+    }
+  }
+}

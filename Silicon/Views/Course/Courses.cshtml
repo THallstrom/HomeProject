@@ -7,6 +7,13 @@
 
 <section class="course">
     <div class="container">
+            <div class="breadcrumb">
+                <ul>
+                <li><a><i class="fa-regular fa-home"></i>Home</a></li>
+                <li><i class="fa-solid fa-chevrons-right"></i></li>
+                <li><a>Course</a></li>
+            </ul>
+            </div>
         <div class="course-header">
             <h1>Courses</h1>
             <form class="filters">
@@ -23,7 +30,7 @@
                 </div>
 
                 <div class="input-seach-group">
-                    <input class="no-m-p" id="searchQuary" name="searchQuery" placeholder="Search courses" />
+                    <input class="no-m-p" id="searchQuary" name="searchQuery" placeholder="Search courses"  />
                     <i class="fa-regular fa-search"></i>
                 </div>
             </form>
@@ -92,5 +99,6 @@
                 }
             </div>
         }
+         <partial name="~/Views/Partials/Sections/_courseBanner.cshtml"></partial> 
     </div>
 </section>

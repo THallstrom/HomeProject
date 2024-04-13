@@ -109,9 +109,9 @@ namespace Silicon.Factories
                     ImageUrl = entity.ImageUrl,
                     BigImageUrl = entity.BigImageUrl,
                     Review = entity.Reviews,
-                    TeacherID = entity.TeacherId
-                    
-                    
+                    TeacherID = entity.TeacherId,
+                    Articles = entity.Articles,
+                    Downloads = entity.Downloadable
                 };
             }
             catch (Exception ex) { }

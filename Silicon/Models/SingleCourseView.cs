@@ -18,5 +18,7 @@
         public string? Teacher { get; set; }
         public int? TeacherID { get; set; }
         public string? Review { get; set; }
+        public string? Articles { get; set; }
+        public string? Downloads { get; set; }
     }
 }

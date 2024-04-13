@@ -1,3 +1,35 @@
-﻿<h1>
-    Info Card
-</h1>
+﻿@model SingleCourseViewModel
+<div class="info-card">
+    <h4>This course includes:</h4>
+    <div class="inc-course">
+        <div class="inc-course-textline">
+            <i class="fa-regular fa-tv"></i>
+            <p>@Model.SingleCourseView.Hours hours on demand video</p>
+        </div>
+        <div class="inc-course-textline">
+            <i class="fa-regular fa-file"></i>
+            <p>@Model.SingleCourseView.Articles Articles</p>
+        </div>
+        <div class="inc-course-textline">
+            <i class="fa-regular fa-regular fa-download"></i>
+            <p>@Model.SingleCourseView.Downloads Downloadable resources</p>
+        </div>
+        <div class="inc-course-textline">
+            <i class="fa-regular fa-infinity"></i>
+            <p>Full life time access</p>
+        </div>
+        <div class="inc-course-textline">
+            <i class="fa-regular fa-trophy"></i>
+            <p>Certificate of completion</p>
+        </div>
+    </div>
+    <div class="price-course">
+        @if (@Model.SingleCourseView.DiscountPrice == "0") {
+            <h3>$ @Model.SingleCourseView.OriginalPrice</h3>
+        } else {
+            <h3>$ @Model.SingleCourseView.DiscountPrice</h3>
+            <h5 class="org-disc-price">$ @Model.SingleCourseView.OriginalPrice</h5>
+        }
+    </div>
+    <button class="btn btn-theme shadow">Join course</button>
+</div>

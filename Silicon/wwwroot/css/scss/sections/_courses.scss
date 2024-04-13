@@ -4,8 +4,36 @@
         flex-direction: column;
 
         .course-header {
-            display: flex;
-            align-items: center;
+            display: grid;
+
+            .filters {
+                display: grid;
+                justify-content: start;
+                padding-bottom: 10px;
+
+                #searchQuary {
+                    color: green;
+                    
+                }
+                @include md {
+                    display: flex;
+                    justify-content: space-between;
+
+                    @include lg {
+                        justify-content: end;
+                    }
+                }
+            }
+
+            @include lg {
+                display: flex;
+                align-items: center;
+
+                .filter {
+                    display: flex;
+                }
+            }
+
 
             .course-search {
                 display: flex;
@@ -16,9 +44,19 @@
 
         .course-expose-area {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
             gap: 24px;
-            a{
+
+            @include md {
+                grid-template-columns: 1fr 1fr;
+                gap: 24px;
+            }
+
+            @include lg {
+                grid-template-columns: 1fr 1fr 1fr;
+                gap: 24px;
+            }
+
+            a {
                 text-decoration: none;
             }
 
@@ -26,6 +64,7 @@
                 .courseImg {
                     position: relative;
                     display: inline-block;
+                    width: 100%;
 
                     .circle {
                         position: absolute;
@@ -73,7 +112,7 @@
         }
 
         .pagination {
-            margin-top: 10px;
+            margin-top: 40px;
             display: flex;
             justify-content: center;
             gap: 10px;

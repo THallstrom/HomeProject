@@ -15,6 +15,8 @@ public class CourseEntity
     public string? NumbersOfLikes { get; set; }
     public bool IsDigital { get; set; }
     public bool IsBestSeller { get; set; }
+    public string? Articles { get; set; }
+    public string? Downloadable { get; set; }
     public string? Reviews { get; set; }
     public DateTime Created { get; set; }
     public DateTime LastUpdated { get; set; }

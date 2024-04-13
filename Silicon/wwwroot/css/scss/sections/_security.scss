@@ -52,11 +52,18 @@
             }
 
             .security-delete {
-                grid-area: security-delete;
 
-                .security-checkbox {
-                    padding: 24px 0 32px 0;
+                grid-area: security-delete;
+                display: flex;
+                flex-direction: column;
+                gap: 1.5em;
+
+                .theme {
+                    color: var(--color-theme);
+                }
+                .input-checkbox {
                     display: flex;
+                    gap: 8px;
                 }
             }
         }

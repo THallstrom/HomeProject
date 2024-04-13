@@ -4,54 +4,44 @@ using Infrastructure.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Identity.Client;
 using Silicon.models;
 using Silicon.Models;
 
 namespace Silicon.Controllers
 {
     [Authorize]
-    public class AccountController(DataContext dataContext, UserManager<UserEntity> userManager, AccountService accountService) : Controller
+    public class AccountController(DataContext dataContext, UserManager<UserEntity> userManager, AccountService accountService, SignInManager<UserEntity> signInManager) : Controller
     {
         private readonly DataContext _context = dataContext;
         private readonly UserManager<UserEntity> _userManager = userManager;
         private readonly AccountService _accountService = accountService;
+        private readonly SignInManager<UserEntity> _signInManager = signInManager;
 
         #region AccountDetails
         public async Task<IActionResult> AccountDetails()
         {
             var user = await _userManager.GetUserAsync(User);
-            // Den borde inte se ut som den gör, bör vara en await funktion eller kontroll
-            var userAddress = _context.Addresses.FirstOrDefault(y => y.Id == user.AddressId);
+            var userAddress = _context.Addresses.FirstOrDefault(y => y.Id == user!.AddressId);
             var viewModel = new AccountDetailViewModel();
 
             if (user != null)
             {
+                viewModel.UserDetail = new UserDetailModel();
+                viewModel.UserDetail.FirstName = user.FirstName;
+                viewModel.UserDetail.LastName = user.LastName;
+                viewModel.UserDetail.Email = user.Email!;
+                viewModel.UserDetail.Phone = user.PhoneNumber;
+
                 if (userAddress != null)
                 {
-                    {
-                        viewModel.FirstName = user.FirstName;
-                        viewModel.LastName = user.LastName;
-                        viewModel.Email = user.Email!;
-                        viewModel.Phone = user.PhoneNumber;
-                        viewModel.Addressline1 = userAddress.Address1!;
-                        viewModel.Addressline2 = userAddress.Address2!;
-                        viewModel.PostalCode = userAddress.PostalCode!;
-                        viewModel.City = userAddress.City!;
-
-                    };
+                    viewModel.AddressDetail = new AddressDetailModel();
+                    viewModel.AddressDetail.Addressline1 = userAddress.Address1!;
+                    viewModel.AddressDetail.Addressline2 = userAddress.Address2!;
+                    viewModel.AddressDetail.PostalCode = userAddress.PostalCode!;
+                    viewModel.AddressDetail.City = userAddress.City!;
                     return View(viewModel);
                 }
-                else
-                {
-                    viewModel.FirstName = user.FirstName;
-                    viewModel.LastName = user.LastName;
-                    viewModel.Email = user.Email!;
-                    viewModel.Phone = user.PhoneNumber;
-                };
                 return View(viewModel);
-
             }
             return View();
         }
@@ -60,10 +50,47 @@ namespace Silicon.Controllers
         #region Security
         public IActionResult Security()
         {
-            
+
             return View();
-            
-            
+
+
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Security(SecurityViewModel security)
+        {
+            if (security.Password != null)
+            {
+                var user = await _userManager.GetUserAsync(User);
+                if (user == null)
+                {
+                    return NotFound();
+                }
+                if (security.Password.NewPassword == security.Password.ConfirmPassword)
+                {
+
+                    var changePasswordResult = await _userManager.ChangePasswordAsync(user, security.Password.CurrentPassword, security.Password.NewPassword);
+                    if (!changePasswordResult.Succeeded)
+                    {
+                        ViewBag.ErrorMessage = "Password is not changed";
+                        return View(security);
+                    }
+                    else
+                    {
+                        ViewBag.SuccessMessage = "Password is changed";
+                        await _signInManager.RefreshSignInAsync(user);
+                    }
+                        
+                    return View(security);
+                }
+                else
+                {
+                    ViewBag.ErrorMessage = "Password is incorrect";
+                    return View(security);
+                }
+
+            }
+            return View(security);
         }
         #endregion
 
@@ -86,23 +113,19 @@ namespace Silicon.Controllers
         #region SaveAddress
         public async Task<IActionResult> SaveAddress(AccountDetailViewModel model)
         {
-            //if (ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-
-                var userEmail = User.Identity.Name;
-                // Den här är bättre för att ta in informationen, radera den över
-                var test = await _userManager.GetUserAsync(User);
-                var user = _context.Users.FirstOrDefault(x => x.Email == userEmail);
+                var user = await _userManager.GetUserAsync(User);
                 if (model != null && user != null)
                 {
                     if (user.AddressId == null)
                     {
                         var Address = new AddressEntity
                         {
-                            Address1 = model.Addressline1,
-                            Address2 = model.Addressline2,
-                            PostalCode = model.PostalCode,
-                            City = model.City
+                            Address1 = model.AddressDetail.Addressline1,
+                            Address2 = model.AddressDetail.Addressline2,
+                            PostalCode = model.AddressDetail.PostalCode,
+                            City = model.AddressDetail.City
                         };
                         _context.Addresses.Add(Address);
                         await _context.SaveChangesAsync();
@@ -113,16 +136,18 @@ namespace Silicon.Controllers
                     else
                     {
                         var address = _context.Addresses.FirstOrDefault(x => x.Id == user.AddressId);
-                        if (address != null)
+                        if (address != null && model.AddressDetail.Addressline1 != null && model.AddressDetail.PostalCode != null && model.AddressDetail.City != null)
                         {
-                            address.Address1 = model.Addressline1;
-                            address.Address2 = model.Addressline2;
-                            address.PostalCode = model.PostalCode;
-                            address.City = model.City;
 
+                            address.Address1 = model.AddressDetail.Addressline1;
+                            address.Address2 = model.AddressDetail.Addressline2;
+                            address.PostalCode = model.AddressDetail.PostalCode;
+                            address.City = model.AddressDetail.City;
+
+                            _context.Addresses.Update(address);
                             await _context.SaveChangesAsync();
                         }
-                        return null!;
+                        return RedirectToAction("AccountDetails", "Account")!;
 
                     }
                     return null!;
@@ -130,7 +155,7 @@ namespace Silicon.Controllers
 
                 return RedirectToAction("Home", "Default");
             }
-            //else return null!;
+            else return null!;
         }
         #endregion
 
@@ -143,9 +168,9 @@ namespace Silicon.Controllers
                 var user = _context.Users.FirstOrDefault(x => x.Email == userEmail);
                 if (user != null)
                 {
-                    user.FirstName = form.FirstName;
-                    user.LastName = form.LastName;
-                    user.PhoneNumber = form.Phone;
+                    user.FirstName = form.UserDetail.FirstName;
+                    user.LastName = form.UserDetail.LastName;
+                    user.PhoneNumber = form.UserDetail.Phone;
 
                     _context.Users.Update(user);
                     await _context.SaveChangesAsync();
@@ -167,13 +192,13 @@ namespace Silicon.Controllers
 
         #region DeleteAccount
         [HttpGet]
-        public IActionResult DeleteAccount ()
+        public IActionResult DeleteAccount()
         {
             return RedirectToAction("Home", "Default");
         }
 
         [HttpPost]
-        public async Task  <IActionResult> DeleteAccount (SecurityViewModel viewModel)
+        public async Task<IActionResult> DeleteAccount(SecurityViewModel viewModel)
         {
             if (viewModel.Delete != null)
             {
@@ -186,11 +211,11 @@ namespace Silicon.Controllers
                 }
                 else
                 {
-                    return null!;
+                    return RedirectToAction("NotAvailable", "Default");
                 }
-            } 
+            }
             else
-            {               
+            {
                 return RedirectToAction("Security", "Account");
             }
         }

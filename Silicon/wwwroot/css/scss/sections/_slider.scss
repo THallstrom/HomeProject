@@ -1,0 +1,70 @@
+.sliderBW{
+    position: relative;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 4em 0;
+    @include lg {
+        padding: 7em 0;
+    }
+    .backgroundBlack{
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 50%;
+        z-index: 1;
+        background-color: var(--color-black);
+    }
+
+    .slider-Button{
+        position: absolute;
+        // left: 50% -3px;
+        height: 100%;
+        width: 4px;
+        background-color: var(--color-theme);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 10;
+        cursor: ew-resize;
+        img {
+            height: 36px;
+            width: 36px;
+        }
+    }
+
+
+        .text-div{
+            color: var(--color-white);
+            z-index: 10;
+        mix-blend-mode: difference;
+        margin-bottom: 3em;
+        text-align: center;
+    }
+    .imageBW-container {
+        position: relative;
+        overflow: hidden;
+        width: 300px;
+        margin: 0 auto;
+        user-select: none;
+        background-color: transparent;
+        z-index: 5;
+        img {
+            width: 100%;
+        }
+        @include md{
+            width: 700px;
+        }
+        
+        @include lg{
+            width: 800px;
+        }
+        @include xl{
+            width: 1076px;
+        }
+    }
+}

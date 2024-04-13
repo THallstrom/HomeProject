@@ -23,7 +23,6 @@
             <nav>
                 <a asp-action="Home" asp-controller="Default" class="nav-link">Overview</a>
                 <a asp-action="Home" asp-controller="Default" class="nav-link">Features</a>
-                <a asp-action="Courses" asp-controller="Course" class="nav-link">Courses</a>
                 <a asp-action="Contact" asp-controller="Default" class="nav-link">Contact</a>
             </nav>
         } 
@@ -37,9 +36,6 @@
             </label>
             <label for="theme-switch-mode">Dark</label>
         </div>
-
-                  
-
             <div class="account-buttons">
                 @if (SignInManager.IsSignedIn(User) && user != null) {
                 <div class="user-link">
@@ -57,8 +53,7 @@
                     <i class="fa-regular fa-user"></i>Sign up
                 </a>
                 }                
-            </div>
-        
+            </div>       
         <button class="btn-menu"><i class="fa-regular fa-bars"></i></button>
     </div>
 </header>

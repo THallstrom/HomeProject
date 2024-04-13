@@ -11,20 +11,20 @@
             <form asp-action="UserProfile" asp-controller="Account" method="post">
                 <div class="basic-info">
                     <div class="info-input firstname">
-                        <label asp-for="FirstName"></label>
-                        <input asp-for="FirstName">
+                        <label asp-for="UserDetail.FirstName"></label>
+                        <input asp-for="UserDetail.FirstName">
                     </div>
                     <div class="info-input lastname">
-                        <label asp-for="LastName"></label>
-                        <input asp-for="LastName">
+                        <label asp-for="UserDetail.LastName"></label>
+                        <input asp-for="UserDetail.LastName">
                     </div>
                     <div class="info-input email">
-                        <label asp-for="Email"></label>
-                        <input asp-for="Email">
+                        <label asp-for="UserDetail.Email"></label>
+                        <input asp-for="UserDetail.Email">
                     </div>
                     <div class="info-input phone">
-                        <label asp-for="Phone"></label>
-                        <input asp-for="Phone">
+                        <label asp-for="UserDetail.Phone"></label>
+                        <input asp-for="UserDetail.Phone">
                     </div>
                     <div class="info-input bio">
                         <label for="Bio">Bio</label>
@@ -40,20 +40,20 @@
             <form method="post" asp-action="SaveAddress" asp-controller="Account">
             <div class="address-info">
                 <div class="info-input address1">
-                    <label asp-for="Addressline1"></label>
-                    <input asp-for="Addressline1">
+                    <label asp-for="AddressDetail!.Addressline1"></label>
+                        <input asp-for="AddressDetail!.Addressline1">
                 </div>
                 <div class="info-input address2">
-                    <label asp-for="Addressline2"></label>
-                    <input asp-for="Addressline2">
+                        <label asp-for="AddressDetail!.Addressline2"></label>
+                        <input asp-for="AddressDetail!.Addressline2">
                 </div>
                 <div class="info-input postalcode">
-                   <label asp-for="PostalCode"></label>
-                   <input asp-for="PostalCode" />
+                        <label asp-for="AddressDetail!.PostalCode"></label>
+                        <input asp-for="AddressDetail!.PostalCode" />
                 </div>
                 <div class="info-input city">
-                    <label asp-for="City"></label>
-                    <input asp-for="City">
+                        <label asp-for="AddressDetail!.City"></label>
+                        <input asp-for="AddressDetail!.City">
                 </div>
             </div>
             <div class="acc-btn">

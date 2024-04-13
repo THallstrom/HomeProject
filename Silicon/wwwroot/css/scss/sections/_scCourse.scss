@@ -1,0 +1,10 @@
+.scContent {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 36px;
+
+    @include md {
+        flex-direction: row;
+        gap: 42px;
+    }
+}

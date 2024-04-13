@@ -14,3 +14,24 @@ input {
     flex-direction: column;
   }
 
+.input-seach-group {
+    position: relative;  
+}
+
+.input-search-group input[type=text]::placeholder {
+    color: var(--color-gray-900);
+}
+
+
+
+.input-seach-group i {
+    position: absolute;
+    right: 10px;
+    top: 14px;
+    color: var(--color-gray-900);
+}
+
+.input-seach-group template {
+    color: var(--color-gray-900);
+}
+
