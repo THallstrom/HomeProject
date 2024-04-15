@@ -4,9 +4,9 @@
     <div class="container">
         <div class="breadcrumb sCourse">
             <ul>
-                <li><a><i class="fa-regular fa-home"></i>Home</a></li>
+                <li><a asp-action="Home" asp-controller="Default"><i class="fa-regular fa-home"></i>Home</a></li>
                 <li><i class="fa-solid fa-chevrons-right"></i></li>
-                <li><a>Course</a></li>
+                <li><a asp-action="Courses" asp-controller="Course">Course</a></li>
                 <li><i class="fa-solid fa-chevrons-right"></i></li>
                 <li><a>@Model.SingleCourseView.Title</a></li>
             </ul>

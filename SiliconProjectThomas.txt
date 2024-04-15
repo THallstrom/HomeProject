@@ -1,0 +1,11 @@
+https://github.com/THallstrom/Homeproject.git
+
+Jag hade en tanke att den svartvita slidern skulle funka men fick ta bort den för att det krockar med andra funktioner, men den ligger där om du vill se.
+
+För övrigt så finns det en mapp som heter FilesForDatabase. Där finns de som kan behövas för att lägga in i databasen, avsluta med att lägga in den 
+till kurserna då dem är länkade till teacher och categorys
+
+Hoppas att det var ungefär det du önskade, men till nästa gång kommer jag verkligen försöka att lägga till konternuerlig testning för att undvika att få en mängd fel 
+som man skulle kunnat förhindra.
+
+mvh Thomas Hallström
